@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>維護保養與營運 | 基曜科技 CoreInfra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-blue: #4A6274;
+            --dark-blue: #2C3E50;
+            --light-bg: #F8FAFC;
+            --accent: #5DADE2;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans TC', sans-serif; }
+        body { color: #333; line-height: 1.8; background-color: var(--light-bg); }
+
+        /* --- 導覽列 --- */
+        nav {
+            position: fixed; width: 100%; top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-link { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 45px; width: auto; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; margin-left: 10px; }
+        .brand-name { font-size: 1.3rem; font-weight: 700; color: #1A2B3C; letter-spacing: 1px; }
+        .brand-sub { font-size: 0.85rem; font-weight: 500; color: #4A6274; letter-spacing: 0.5px; }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: var(--dark-blue); font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent); }
+
+        /* --- 分頁標題區 --- */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 10%;
+            background: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+        }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--accent); }
+        .page-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #ddd; }
+
+        /* --- 內容區塊 --- */
+        .content-section { padding: 60px 10%; max-width: 1200px; margin: 0 auto; background: var(--white); box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; margin-top: -30px; position: relative; }
+        
+        .ops-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .ops-card { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #eee; border-left: 5px solid var(--accent); }
+        .ops-card h3 { color: var(--main-blue); margin-bottom: 15px; font-size: 1.3rem; }
+        .ops-card ul { list-style: square; padding-left: 20px; color: #555; }
+        .ops-card ul li { margin-bottom: 8px; }
+
+        .retrofit-box { margin-top: 50px; padding: 40px; background: #2C3E50; color: white; border-radius: 12px; }
+        .retrofit-box h3 { color: var(--accent); margin-bottom: 20px; text-align: center; }
+        .retrofit-flex { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; }
+        .retrofit-item { flex: 1; min-width: 250px; text-align: center; padding: 20px; }
+
+        .nav-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap; }
+        .back-btn { display: inline-block; padding: 12px 30px; background: var(--main-blue); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .back-btn:hover { background: var(--dark-blue); }
+        .home-btn { display: inline-block; padding: 12px 30px; background: var(--accent); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .home-btn:hover { background: #3498DB; }
+
+        footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; margin-top: 60px; }
+
+        @media (max-width: 768px) { nav ul, .ops-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-link">
+            <img src="logo.png" alt="CoreInfra" class="logo-img">
+            <div class="logo-text">
+                <span class="brand-name">基曜科技</span>
+                <span class="brand-sub">CoreInfra</span>
+            </div>
+        </a>
+        <ul>
+            <li><a href="index.html">回首頁</a></li>
+            <li><a href="index.html#services">服務模組</a></li>
+            <li><a href="index.html#contact">聯絡我們</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>5. 維護保養與營運</h1>
+        <p>Maintenance & Operations</p>
+    </header>
+
+    <section class="content-section">
+        <h2 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">資料中心全生命週期的守護者</h2>
+        <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">交付不是結束，而是營運的開始。基曜科技協助客戶建立標準化的維運體系，並針對既有機房提供效能優化與改造建議，確保資產價值最大化。</p>
+
+        <div class="ops-grid">
+            <div class="ops-card">
+                <h3>🛠️ 營運導入與體系建立</h3>
+                <ul>
+                    <li>制定標準作業程序 (SOP) 與緊急應變程序 (EOP)</li>
+                    <li>協助 CMMS/BMS 維運管理系統導入</li>
+                    <li>維運團隊技術培訓與交接 (Handover)</li>
+                    <li>年度維護計畫規劃與備品管理策略</li>
+                </ul>
+            </div>
+
+            <div class="ops-box-alt" style="background: rgba(93, 173, 226, 0.05); padding: 30px; border-radius: 12px; border: 1px dashed var(--accent);">
+                <h3 style="color: var(--main-blue); margin-bottom: 15px;">🔍 既有機房優化服務</h3>
+                <p style="font-size: 0.95rem; color: #555;">針對已投產多年的資料中心，我們提供：</p>
+                <ul style="list-style: none; margin-top: 10px;">
+                    <li style="margin-bottom: 10px;">🛡️ 重新驗證 (Retro-Commissioning)： 找出效能下滑的關鍵點。</li>
+                    <li style="margin-bottom: 10px;">♻️ 節能優化：改善 PUE 值，降低能源成本。</li>
+                    <li style="margin-bottom: 10px;">📦 容量釋放：透過氣流優化釋放被鎖定的電力容量。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="retrofit-box">
+            <h3>機房改造與升級 (Retrofit)</h3>
+            <div class="retrofit-flex">
+                <div class="retrofit-item">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔄</div>
+                    <h4>不中斷系統改造</h4>
+                    <p style="font-size: 0.85rem; color: #ccc;">在不影響伺服器運行的情況下，完成電力或空調系統的升級。</p>
+                </div>
+                <div class="retrofit-item">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">📈</div>
+                    <h4>高密度轉型</h4>
+                    <p style="font-size: 0.85rem; color: #ccc;">針對 AI 運算需求，將傳統機房改造成支援高負載機櫃的場域。</p>
+                </div>
+                <div class="retrofit-item">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔋</div>
+                    <h4>能源永續轉型</h4>
+                    <p style="font-size: 0.85rem; color: #ccc;">導入新型儲能系統或綠電架構，對齊企業 ESG 目標。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="service-4-cx.html" class="back-btn">← 上一階段：測試驗收與投產</a>
+            <a href="index.html#services" class="back-btn" style="background: #95a5a6;">返回服務列表</a>
+            <a href="index.html" class="home-btn">返回首頁</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 基曜科技股份有限公司 (CoreInfra Systems Co., Ltd.) 版權所有</p>
+    </footer>
+
+</body>
+</html>
