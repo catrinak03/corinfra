@@ -77,7 +77,6 @@
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .highlight-box { background: var(--light-bg); padding: 30px; border-radius: 10px; margin: 25px 0; border-left: 4px solid var(--accent); }
         
-        /* 將 grid 改為 flex，讓5張卡片能完美置中排列 */
         .service-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
         
         .card { 
@@ -89,7 +88,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 320px; /* 控制單張卡片最大寬度 */
+            max-width: 320px; 
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
@@ -115,63 +114,49 @@
 
         footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; }
 
-        <style>
+        /* --- 手機版響應式優化 --- */
+        @media (max-width: 768px) { 
+            /* 1. 導覽列優化：縮小文字與間距，防止換行 */
+            nav { padding: 10px 4%; }
+            .logo-img { height: 40px; }
+            .logo-text { margin-left: 8px; }
+            .brand-name { font-size: 1.05rem; letter-spacing: 0; }
+            .brand-sub { font-size: 0.7rem; }
+            nav ul { display: none; } /* 手機版建議隱藏或改漢堡選單，以免擠壓內容 */
 
-/* ===== 原本 CSS（略） ===== */
+            /* 2. Hero 區塊優化：縮小字體 */
+            section { padding: 60px 6%; }
+            .hero { height: 85vh; background-attachment: scroll; }
+            .hero h1 { 
+                font-size: 1.75rem; 
+                line-height: 1.4; 
+                margin-bottom: 15px;
+            }
+            .hero p { 
+                font-size: 0.95rem; 
+                line-height: 1.6;
+                padding: 0 10px;
+            }
+            .btn { padding: 12px 30px; font-size: 1rem; }
 
+            /* 3. 關於我們：改為垂直排版 */
+            .about-grid { 
+                grid-template-columns: 1fr; 
+                gap: 30px; 
+            }
+            .title-box h2 { font-size: 1.8rem; }
 
-/* ===== Mobile Responsive ===== */
-@media (max-width: 768px) {
+            /* 4. 服務模組：調整卡片寬度 */
+            .card { 
+                max-width: 100%; 
+                padding: 30px 20px; 
+            }
 
-  /* index.html */
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  nav ul {
-    display: none;
-  }
-
-  section {
-    padding: 60px 5%;
-  }
-
-
-  /* service pages */
-  .page-header {
-    margin-top: 60px;
-    padding: 60px 5%;
-  }
-
-  .content-section {
-    padding: 40px 5%;
-  }
-
-  .feature-grid,
-  .construction-grid,
-  .grid-3,
-  .ops-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-item,
-  .item-card,
-  .info-card,
-  .ops-card {
-    padding: 25px 20px;
-  }
-
-  .nav-buttons {
-    flex-direction: column;
-  }
-}
-</style>
+            /* 5. 聯絡我們：垂直排列 */
+            .contact-flex { flex-direction: column; gap: 30px; }
+            .map-box { min-width: 100%; height: 300px; }
+        }
     </style>
-    
 </head>
 <body>
 
@@ -211,9 +196,9 @@
                     <p style="margin-bottom: 10px;"><strong>🏆 我們的核心承諾：</strong></p>
                     <p style="font-size: 1.1rem; color: var(--main-blue); font-weight: bold;">交付「可運轉、可擴充、可驗證」的資料中心。</p>
                 </div>
-                <p><strong>產業實戰經驗：</strong> 過去五年，全球雲服務業者在台灣大規模擴建，帶動高標準、高密度、高可靠度的建置需求。我們的核心團隊在多個關鍵專案中擔任舉足輕重的角色。</p>
+                <p><strong>產業實戰經驗：</strong> 過去五年，全球雲服務業者在台灣大規模擴建，帶動高標準、高密度、高可靠度的建置需求。</p>
                 <br>
-                <p>這份實戰經驗使基曜能精準掌握<strong>跨單位協調、介面整合</strong>，以及雲端客戶對<strong>可用性與交付節點</strong>的核心要求，協助客戶在時程、品質、可靠度與合規之間取得最佳平衡。</p>
+                <p>這份實戰經驗使基曜能精準掌握<strong>跨單位協調、介面整合</strong>，以及雲端客戶對<strong>可用性與交付節點</strong>的核心要求。</p>
             </div>
         </div>
     </section>
@@ -228,7 +213,6 @@
         </div>
         
         <div class="service-container">
-            
             <div class="card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">📐</div>
                 <h3 style="font-size: 1.2rem;">1. 前期規劃設計</h3>
@@ -241,7 +225,7 @@
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🤝</div>
                 <h3 style="font-size: 1.2rem;">2. 採購發包</h3>
                 <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Procurement & Tendering</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">協助釐清採購規格，確立測試要求與責任邊界，避免發包後認知落差。</p>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">協助釐清採購規格，確立測試要求與責任邊界。</p>
                 <a href="service-2-procurement.html" class="learn-more-btn">了解更多細節</a>
             </div>
 
@@ -249,7 +233,7 @@
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🏗️</div>
                 <h3 style="font-size: 1.2rem;">3. 建置與系統安裝</h3>
                 <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Construction & Installation</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">EPC 一站式整合交付，透過專業 PCM 管理控制進度與跨子系統介面。</p>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">EPC 一站式整合交付，透過專業 PCM 管理控制進度。</p>
                 <a href="service-3-construction.html" class="learn-more-btn">了解更多細節</a>
             </div>
 
@@ -257,7 +241,7 @@
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🧪</div>
                 <h3 style="font-size: 1.2rem;">4. 測試驗收與投產</h3>
                 <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Testing & Commissioning</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">設計階段即提前介入，落實 L1-L5 驗收框架，強化投產可用性。</p>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">落實 L1-L5 驗收框架，強化投產可用性。</p>
                 <a href="service-4-cx.html" class="learn-more-btn">了解更多細節</a>
             </div>
 
@@ -265,10 +249,9 @@
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🛡️</div>
                 <h3 style="font-size: 1.2rem;">5. 維護保養與營運</h3>
                 <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Maintenance & Operations</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">導入完善維運制度，並提供既有機房升級 (Retrofit) 與可靠度優化。</p>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">導入完善維運制度，並提供既有機房升級與可靠度優化。</p>
                 <a href="service-5-ops.html" class="learn-more-btn">了解更多細節</a>
             </div>
-
         </div>
     </section>
 
@@ -297,7 +280,7 @@
             </div>
             <div class="map-box">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.793704259836!2d121.5298888!3d24.9731667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346801ff2a5a546d%3A0xc3f12ef0d2b37c68!2zMTEw5Y-w5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbqiJ8xNw!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.513361250284!2d121.5283401!3d24.9826338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468020614838421%3A0xc6823528f4209939!2zMjMxNTA25paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbmqJPkuYsxNw!5e0!3m2!1szh-TW!2stw!4v1715840000000!5m2!1szh-TW!2stw" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
