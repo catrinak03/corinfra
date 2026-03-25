@@ -115,12 +115,63 @@
 
         footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; }
 
-        @media (max-width: 768px) { 
-            .about-grid { grid-template-columns: 1fr; } 
-            .hero h1 { font-size: 2.2rem; } 
-            nav ul { display: none; } 
-        }
+        <style>
+
+/* ===== 原本 CSS（略） ===== */
+
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+
+  /* index.html */
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  section {
+    padding: 60px 5%;
+  }
+
+
+  /* service pages */
+  .page-header {
+    margin-top: 60px;
+    padding: 60px 5%;
+  }
+
+  .content-section {
+    padding: 40px 5%;
+  }
+
+  .feature-grid,
+  .construction-grid,
+  .grid-3,
+  .ops-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item,
+  .item-card,
+  .info-card,
+  .ops-card {
+    padding: 25px 20px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+  }
+}
+</style>
     </style>
+    
 </head>
 <body>
 
