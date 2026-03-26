@@ -20,10 +20,14 @@
         }
 
         * {
-            margin: 0; padding: 0; box-sizing: border-box;
-            font-family: 'Noto Sans TC', sans-serif;
-            scroll-behavior: smooth;
-        }
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* ✅ 將平滑捲動獨立放在 html 標籤 */
+html {
+    scroll-behavior: smooth;
+}
 
         body { color: #333; line-height: 1.8; overflow-x: hidden; }
 
