@@ -171,20 +171,30 @@
 
 
         /* 手機版響應式 */
-        @media (max-width: 768px) { 
-            nav { padding: 10px 5%; }
-            .menu-toggle { display: flex; }
-            nav ul {
-                display: none; position: absolute; top: 100%; left: 0; width: 100%;
-                flex-direction: column; background: white; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
-            nav ul.active { display: flex; }
-            nav ul li { margin: 0; text-align: center; padding: 15px 0; border-bottom: 1px solid #eee; }
-            section { padding: 60px 6%; }
-            .hero { height: auto; padding: 140px 20px 80px 20px; background-attachment: scroll; }
-            .hero h1 { font-size: 1.8rem; }
-            .about-grid, .contact-flex { grid-template-columns: 1fr; }
-        }
+       @media (max-width: 768px) { 
+    nav { padding: 10px 5%; }
+    .menu-toggle { display: flex; }
+    nav ul {
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        flex-direction: column; background: white; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    nav ul.active { display: flex; }
+    nav ul li { margin: 0; text-align: center; padding: 15px 0; border-bottom: 1px solid #eee; }
+    section { padding: 60px 6%; }
+    .hero { height: auto; padding: 140px 20px 80px 20px; background-attachment: scroll; }
+    .hero h1 { font-size: 1.8rem; }
+    .about-grid, .contact-flex { grid-template-columns: 1fr; }
+
+    /* 👇 新增這段來調整你說的那段文字 👇 */
+    /* 假設這段文字在 .hero 區塊的 p 標籤裡面。如果不是，請將 .hero p 改成該文字的 class */
+    .hero p { 
+        font-size: 1rem;       /* 縮小字體大小 (可依需求微調，如 0.9rem 或 15px) */
+        line-height: 1.6;      /* 增加行高，讓上下行文字不要全擠在一起 */
+        padding: 0 10px;       /* 左右增加一點內距，避免文字太貼齊螢幕邊緣 */
+        margin-top: 15px;      /* 與上方的標題保持一點距離 */
+        color: #555;           /* (選用) 稍微調淡文字顏色，也能減輕視覺壓迫感 */
+    }
+}
     </style>
 </head>
 <body>
