@@ -25,7 +25,7 @@
             scroll-behavior: smooth;
         }
 
-        body { color: #333; line-height: 1.8; }
+        body { color: #333; line-height: 1.8; overflow-x: hidden; }
 
         /* --- 導覽列 --- */
         nav {
@@ -70,7 +70,7 @@
         .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.3; }
         .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 30px; }
         
-        .btn { padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
+        .btn { display: inline-block; padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
         .btn:hover { background: #3498DB; }
 
         .title-box { text-align: center; margin-bottom: 60px; }
@@ -88,12 +88,6 @@
         .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .card h3 { color: var(--main-blue); margin-bottom: 15px; }
 
-        .learn-more-btn {
-            display: inline-block; margin-top: auto; padding-top: 25px;
-            color: var(--accent); font-weight: bold; text-decoration: none; transition: 0.3s;
-        }
-        .learn-more-btn::after { content: ' ➔'; }
-        
         .contact-flex { display: flex; flex-wrap: wrap; gap: 50px; align-items: flex-start; }
         .contact-info { flex: 1; }
         .contact-item { margin-bottom: 25px; }
@@ -142,7 +136,7 @@
 
     <section id="home" class="hero">
         <h1>資料中心基礎設施<br>全生命週期專業夥伴</h1>
-        <p>提供從策略規劃、工程交付到穩定運維的系統工程。<br>以專業經驗與可落地的能力，成為您最可靠的長期合作夥伴。</p>
+        <p>提供策略規劃、工程交付到穩定運維的系統工程。<br>以專業經驗與可落地的能力，成為您最可靠的長期合作夥伴。</p>
         <a href="#contact" class="btn">聯繫專家團隊</a>
     </section>
 
@@ -150,15 +144,14 @@
         <div class="title-box"><h2>關於我們</h2></div>
         <div class="about-grid">
             <div style="text-align: center;">
-                <img src="logo.png" alt="CoreInfra 專業團隊" style="width: 100%; max-width: 380px; border-radius: 10px;">
+                <img src="logo.png" alt="CoreInfra" style="width: 100%; max-width: 380px; border-radius: 10px;">
             </div>
             <div>
-                <p><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年，由一群深耕資料中心基礎設施、累積數十年實務經驗的資深團隊共同創立。</p>
+                <p><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年。</p>
                 <div class="highlight-box">
                     <p style="font-size: 1.1rem; color: var(--main-blue); font-weight: bold;">交付「可運轉、可擴充、可驗證」的資料中心。</p>
                 </div>
-                <p style="margin-bottom: 15px;"><strong>產業實戰經驗：</strong> 過去五年，全球雲服務業者在台灣大規模擴建，帶動高標準、高密度、高可靠度的建置需求。我們的核心團隊在多個關鍵專案中擔任舉足輕重的角色。</p>
-                <p>這份實戰經驗使我們能精準掌握跨單位協調與介面整合，協助客戶在時程、品質與可靠度之間取得最佳平衡。</p>
+                <p>我們精準掌握跨單位協調與介面整合，協助客戶在時程、品質與可靠度之間取得最佳平衡。</p>
             </div>
         </div>
     </section>
@@ -169,27 +162,14 @@
             <div class="card">
                 <h3>1. 前期規劃設計</h3>
                 <p>提供容量規劃、場址評估與 Uptime 認證諮詢設計服務。</p>
-                <a href="service-1-design.html" class="learn-more-btn">了解更多細節</a>
             </div>
             <div class="card">
-                <h3>2. 採購發包</h3>
-                <p>協助釐清採購規格，確立測試要求與責任邊界。</p>
-                <a href="service-2-procurement.html" class="learn-more-btn">了解更多細節</a>
-            </div>
-            <div class="card">
-                <h3>3. 建置與安裝</h3>
-                <p>EPC 一站式整合交付，PCM 專業管理確保工程品質。</p>
-                <a href="service-3-construction.html" class="learn-more-btn">了解更多細節</a>
-            </div>
-            <div class="card">
-                <h3>4. 測試驗收與投產</h3>
+                <h3>2. 測試驗收與投產</h3>
                 <p>落實 L1-L5 驗收框架，強化資料中心投產可用性。</p>
-                <a href="service-4-cx.html" class="learn-more-btn">了解更多細節</a>
             </div>
             <div class="card">
-                <h3>5. 維護保養與營運</h3>
+                <h3>3. 維護保養與營運</h3>
                 <p>導入維運制度、關鍵設施維護與既有機房升級改造。</p>
-                <a href="service-5-ops.html" class="learn-more-btn">了解更多細節</a>
             </div>
         </div>
     </section>
@@ -205,7 +185,13 @@
                 <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" class="btn">📝 預約技術相談</a>
             </div>
             <div class="map-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.711811807661!2d121.5284711!3d24.9759325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468020088556857%3A0x70be6559b359c193!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbomJPkuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711420000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" tabindex="-1"></iframe>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.186638421482!2d121.5283401!3d24.9767786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468021da3b6d271%3A0x6b6e4e5e78342750!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbmqJPkuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711430000000!5m2!1szh-TW!2stw" 
+                    width="100%" height="100%" style="border:0;" 
+                    allowfullscreen="" loading="lazy"
+                    tabindex="-1"
+                    sandbox="allow-scripts allow-same-origin allow-popups">
+                </iframe>
             </div>
         </div>
     </section>
@@ -215,30 +201,24 @@
     </footer>
 
     <script>
-        // 強制加載時滾動到最上方
+        // 強制不記憶捲軸位置並置頂
         if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
         window.scrollTo(0, 0);
 
+        // 手機版選單
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        document.querySelectorAll('#nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
+        // 導覽列變色
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+
+        // 二次置頂（防地圖搶焦點）
+        window.addEventListener('load', () => {
+            setTimeout(() => { window.scrollTo(0, 0); }, 300);
         });
     </script>
 </body>
