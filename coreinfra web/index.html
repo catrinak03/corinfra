@@ -201,25 +201,31 @@
         <p>© 2025 基曜科技股份有限公司 (CoreInfra Systems Co., Ltd.) 版權所有</p>
     </footer>
 
-    <script>
-        // 強制不記憶捲軸位置並置頂
+   <script>
+        // 1. 強制不記憶捲軸位置並置頂 (基本防護)
         if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
         window.scrollTo(0, 0);
 
-        // 手機版選單
+        // 2. 手機版選單
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
         menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        // 導覽列變色
+        // 3. 導覽列變色
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
 
-        // 二次置頂（防地圖搶焦點）
+        // 4. 終極絕招：延遲加載地圖 (避免地圖搶焦點)
         window.addEventListener('load', () => {
-            setTimeout(() => { window.scrollTo(0, 0); }, 300);
+            // 網頁完全載入後，等待 1 秒鐘 (1000毫秒)，再把地圖載入進來
+            setTimeout(() => {
+                const mapIframe = document.getElementById('gmap');
+                if (mapIframe) {
+                    mapIframe.src = mapIframe.getAttribute('data-src');
+                }
+            }, 1000);
         });
     </script>
 </body>
