@@ -243,31 +243,41 @@ html {
     </footer>
 
    <script>
-        // 1. 強制不記憶捲軸位置並置頂 (基本防護)
-        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-        window.scrollTo(0, 0);
+        // 1. 強制不記憶捲軸位置
+if ('scrollRestoration' in history) { 
+    history.scrollRestoration = 'manual'; 
+}
 
-        // 2. 手機版選單
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+// 2. 移除網址列的錨點 (避免重整時瀏覽器自動跳轉到 #contact)
+if (window.location.hash) {
+    window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+}
 
-        // 3. 導覽列變色
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
-        });
+// 3. 強制置頂 (利用稍微延遲 1 毫秒，確保蓋過瀏覽器的預設行為)
+setTimeout(() => {
+    window.scrollTo(0, 0);
+}, 1);
 
-        // 4. 終極絕招：延遲加載地圖 (避免地圖搶焦點)
-        window.addEventListener('load', () => {
-            // 網頁完全載入後，等待 1 秒鐘 (1000毫秒)，再把地圖載入進來
-            setTimeout(() => {
-                const mapIframe = document.getElementById('gmap');
-                if (mapIframe) {
-                    mapIframe.src = mapIframe.getAttribute('data-src');
-                }
-            }, 1000);
-        });
+// 4. 手機版選單
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.getElementById('nav-links');
+menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+// 5. 導覽列變色
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+});
+
+// 6. 延遲加載地圖 (避免地圖搶焦點)
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const mapIframe = document.getElementById('gmap');
+        if (mapIframe) {
+            mapIframe.src = mapIframe.getAttribute('data-src');
+        }
+    }, 1000);
+});
     </script>
 </body>
 </html>
