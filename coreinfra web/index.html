@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>基曜科技 CoreInfra | 資料中心基礎設施全生命週期專業夥伴</title>
     
-    <link rel="icon" href="./logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="./logo.png">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
     
@@ -19,19 +19,13 @@
             --white: #ffffff;
         }
 
-        /* 防止頁面加載時的閃爍與跳動 */
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
         * {
             margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
         }
 
-        body { color: #333; line-height: 1.8; opacity: 0; transition: opacity 0.5s; }
-        body.loaded { opacity: 1; }
+        body { color: #333; line-height: 1.8; }
 
         /* --- 導覽列 --- */
         nav {
@@ -40,128 +34,7 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 8%; z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo-link { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 60px; width: auto; }
-        
-        /* 導覽列清單 */
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 30px; }
-        nav ul li a { text-decoration: none; color: var(--dark-blue); font-weight: 500; }
-
-        .logo-text { display: flex; flex-direction: column; margin-left: 10px; }
-        .brand-name { font-size: 1.3rem; font-weight: 700; color: #1A2B3C; }
-        .brand-sub { font-size: 0.85rem; color: #4A6274; }
-
-        /* --- 區塊樣式 --- */
-        section { padding: 100px 10%; }
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('datacenter.png.webp'); 
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: var(--white); text-align: center;
-        }
-
-        .title-box { text-align: center; margin-bottom: 60px; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .highlight-box { background: var(--light-bg); padding: 30px; border-radius: 10px; border-left: 4px solid var(--accent); margin: 20px 0; }
-        
-        .contact-flex { display: flex; flex-wrap: wrap; gap: 50px; }
-        .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: 15px; overflow: hidden; background: #eee; }
-
-        footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; }
-
-        @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr; }
-            section { padding: 60px 5%; }
-        }
-    </style>
-</head>
-<body onload="document.body.classList.add('loaded')">
-
-    <nav id="navbar">
-        <a href="#home" class="logo-link">
-            <img src="logo.png" alt="基曜科技" class="logo-img">
-            <div class="logo-text">
-                <span class="brand-name">基曜科技</span>
-                <span class="brand-sub">CoreInfra</span>
-            </div>
-        </a>
-        <ul>
-            <li><a href="#home">首頁</a></li>
-            <li><a href="#about">關於我們</a></li>
-            <li><a href="#contact">聯絡我們</a></li>
-        </ul>
-    </nav>
-
-    <section id="home" class="hero">
-        <h1>資料中心基礎設施<br>全生命週期專業夥伴</h1>
-        <p>提供策略規劃、工程交付到穩定運維的系統工程。</p>
-    </section>
-
-    <section id="about">
-        <div class="title-box"><h2>關於我們</h2></div>
-        <div class="about-grid">
-            <div style="text-align: center;">
-                <img src="logo.png" alt="CoreInfra" style="width: 100%; max-width: 380px;">
-            </div>
-            <div>
-                <p><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年。</p>
-                <div class="highlight-box">
-                    <p><strong>🏆 核心承諾：</strong> 交付「可運轉、可擴充、可驗證」的資料中心。</p>
-                </div>
-                <p><strong>產業實戰經驗：</strong> 過去五年，我們在多個雲端專案中擔任舉足輕重的角色。</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="title-box"><h2>聯絡我們</h2></div>
-        <div class="contact-flex">
-            <div class="contact-info">
-                <p>📍 新北市新店區中央路153號16樓之17</p>
-                <p>📞 +886-922-106813</p>
-                <p>📧 Catrina.Kao@coreinfra-tw.com</p>
-            </div>
-            <div class="map-box">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3616.5167683933393!2d121.5284144!3d24.9825946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468021029c78663%3A0xc6df7378696d5951!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbomZ_kuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711420000000!5m2!1szh-TW!2stw" 
-                    width="100%" height="100%" style="border:0;" 
-                    allowfullscreen="" loading="lazy" 
-                    sandbox="allow-scripts allow-same-origin allow-popups">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer><p>© 2025 基曜科技股份有限公司 版權所有</p></footer>
-
-    <script>
-        // 1. 強制讓網頁在加載時保持在頂部
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
-        };
-
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-
-        // 2. 處理導覽列滾動效果
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.style.padding = "10px 8%";
-                nav.style.background = "#fff";
-            } else {
-                nav.style.padding = "15px 8%";
-                nav.style.background = "rgba(255, 255, 255, 0.98)";
-            }
-        });
-    </script>
-</body>
-</html>            transition: 0.3s;
+            transition: 0.3s;
         }
 
         .logo-link { display: flex; align-items: center; text-decoration: none; }
@@ -169,6 +42,7 @@
         nav.scrolled { padding: 8px 8%; }
         nav.scrolled .logo-img { height: 45px; }
 
+        /* 漢堡按鈕 (預設隱藏) */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -220,6 +94,7 @@
         .highlight-box { background: var(--light-bg); padding: 30px; border-radius: 10px; margin: 25px 0; border-left: 4px solid var(--accent); }
         
         .service-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        
         .card { 
             background: var(--white); padding: 40px; border-radius: 12px; border: 1px solid #eee; transition: 0.3s; 
             display: flex; flex-direction: column; width: 100%; max-width: 320px; 
@@ -230,6 +105,7 @@
             display: inline-block; margin-top: auto; padding-top: 25px;
             color: var(--accent); font-weight: bold; text-decoration: none; transition: color 0.3s;
         }
+        .learn-more-btn:hover { color: #3498DB; }
         .learn-more-btn::after { content: ' ➔'; transition: margin-left 0.3s; }
         .learn-more-btn:hover::after { margin-left: 5px; }
         
@@ -237,16 +113,22 @@
         .contact-info { flex: 1; }
         .contact-item { margin-bottom: 25px; }
         .contact-item h4 { color: var(--main-blue); margin-bottom: 5px; font-size: 1.1rem;}
-        .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; }
+        
+        .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; }
 
+        /* --- 手機版響應式優化 --- */
         @media (max-width: 768px) { 
             nav { padding: 10px 5%; }
             .logo-img { height: 40px; }
             .brand-name { font-size: 1.05rem; letter-spacing: 0; }
             .brand-sub { font-size: 0.7rem; }
+            
+            /* 顯示漢堡按鈕 */
             .menu-toggle { display: flex; }
+
+            /* 手機版下拉選單 */
             nav ul {
                 display: none;
                 position: absolute; top: 100%; left: 0; width: 100%;
@@ -256,10 +138,12 @@
             nav ul.active { display: flex; }
             nav ul li { margin: 0; text-align: center; padding: 15px 0; border-bottom: 1px solid #eee; }
             nav ul li:last-child { border-bottom: none; }
+
             section { padding: 60px 6%; }
             .hero { height: auto; padding: 140px 20px 80px 20px; background-attachment: scroll; }
             .hero h1 { font-size: 1.75rem; line-height: 1.4; }
             .hero p { font-size: 0.95rem; }
+
             .about-grid, .contact-flex { grid-template-columns: 1fr; gap: 30px; }
             .map-box { min-width: 100%; height: 300px; }
         }
@@ -288,8 +172,6 @@
         </ul>
     </nav>
 
-    <div id="top"></div>
-
     <section id="home" class="hero">
         <h1>資料中心基礎設施<br>全生命週期專業夥伴</h1>
         <p>提供從策略規劃、工程交付到穩定運維的系統工程。<br>以專業經驗與可落地的能力，成為您最可靠的長期合作夥伴。</p>
@@ -297,7 +179,9 @@
     </section>
 
     <section id="about">
-        <div class="title-box"><h2>關於我們</h2></div>
+        <div class="title-box">
+            <h2>關於我們</h2>
+        </div>
         <div class="about-grid">
             <div style="text-align: center;">
                 <img src="logo.png" alt="CoreInfra 專業團隊" style="width: 100%; max-width: 380px; border-radius: 10px;">
@@ -308,38 +192,40 @@
                     <p style="margin-bottom: 10px;"><strong>🏆 我們的核心承諾：</strong></p>
                     <p style="font-size: 1.1rem; color: var(--main-blue); font-weight: bold;">交付「可運轉、可擴充、可驗證」的資料中心。</p>
                 </div>
-                <p style="margin-bottom: 15px;"><strong>產業實戰經驗：</strong> 過去五年，全球雲服務業者在台灣大規模擴建，帶動高標準、高密度、高可靠度的建置需求。我們的核心團隊在多個關鍵專案中擔任舉足輕重的角色。</p>
-                <p>這份實戰經驗使基曜能精準掌握跨單位協調、介面整合，以及雲端客戶對可用性與交付節點的核心要求，協助客戶在時程、品質、可靠度與合規之間取得最佳平衡。</p>
+                <p>這份實戰經驗使基曜能精準掌握跨單位協調，以及雲端客戶對可用性與交付節點的核心要求。</p>
             </div>
         </div>
     </section>
 
     <section id="services" style="background-color: var(--light-bg);">
         <div class="title-box"><h2>核心服務模組</h2></div>
+        <div style="text-align: center; margin-bottom: 60px;">
+            <img src="service-flow.jpg" alt="流程圖" style="max-width: 100%; height: auto; max-height: 250px;">
+        </div>
         <div class="service-container">
             <div class="card">
-                <h3>1. 前期規劃設計</h3>
-                <p>提供容量規劃與細部設計服務。</p>
+                <h3 style="font-size: 1.2rem;">1. 前期規劃設計</h3>
+                <p style="font-size: 0.95rem; color: #666; margin: 10px 0;">提供容量規劃、認證諮詢與細部設計服務。</p>
                 <a href="service-1-design.html" class="learn-more-btn">了解更多細節</a>
             </div>
             <div class="card">
-                <h3>2. 採購發包</h3>
-                <p>協助釐清採購規格，確立測試要求與邊界。</p>
+                <h3 style="font-size: 1.2rem;">2. 採購發包</h3>
+                <p style="font-size: 0.95rem; color: #666; margin: 10px 0;">協助釐清採購規格，確立測試要求。</p>
                 <a href="service-2-procurement.html" class="learn-more-btn">了解更多細節</a>
             </div>
             <div class="card">
-                <h3>3. 建置與安裝</h3>
-                <p>EPC 一站式整合交付，管理進度與品質。</p>
+                <h3 style="font-size: 1.2rem;">3. 建置與系統安裝</h3>
+                <p style="font-size: 0.95rem; color: #666; margin: 10px 0;">EPC 一站式整合交付，管理進度。</p>
                 <a href="service-3-construction.html" class="learn-more-btn">了解更多細節</a>
             </div>
             <div class="card">
-                <h3>4. 測試驗收與投產</h3>
-                <p>落實 L1-L5 驗收框架，強化投產可用性。</p>
+                <h3 style="font-size: 1.2rem;">4. 測試驗收與投產</h3>
+                <p style="font-size: 0.95rem; color: #666; margin: 10px 0;">落實 L1-L5 驗收框架。</p>
                 <a href="service-4-cx.html" class="learn-more-btn">了解更多細節</a>
             </div>
             <div class="card">
-                <h3>5. 維護保養與營運</h3>
-                <p>導入維運制度與既有機房升級優化。</p>
+                <h3 style="font-size: 1.2rem;">5. 維護保養與營運</h3>
+                <p style="font-size: 0.95rem; color: #666; margin: 10px 0;">導入維運制度與既有機房升級。</p>
                 <a href="service-5-ops.html" class="learn-more-btn">了解更多細節</a>
             </div>
         </div>
@@ -356,11 +242,7 @@
                 <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" class="btn">📝 預約技術相談</a>
             </div>
             <div class="map-box">
-                <iframe 
-                    title="Google Map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.442971271618!2d121.5284803!3d24.9849504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346802008894101d%3A0x633519c5220c5765!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbmqJPkuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711425600000!5m2!1szh-TW!2stw" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.711832049877!2d121.5284893!3d24.9759363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468021a00000001%3A0x6a1f81d59647240a!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbomZ_kuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711411200000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -370,14 +252,7 @@
     </footer>
 
     <script>
-        // 解決開啟網站跳轉到底部的終極方案
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual'; // 禁止瀏覽器記住上次滾動位置
-        }
-
-        // 頁面加載時強制滾動到頂部
-        window.scrollTo(0, 0);
-
+        // 漢堡選單邏輯
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
         
@@ -385,18 +260,22 @@
             navLinks.classList.toggle('active');
         });
 
+        // 點擊連結後自動關閉選單
         document.querySelectorAll('#nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
+        // 滾動效果
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
+                nav.style.background = "rgba(255, 255, 255, 1)";
             } else {
                 nav.classList.remove('scrolled');
+                nav.style.background = "rgba(255, 255, 255, 0.98)";
             }
         });
     </script>
