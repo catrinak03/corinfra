@@ -42,17 +42,11 @@
         nav.scrolled { padding: 8px 8%; }
         nav.scrolled .logo-img { height: 45px; }
 
-        /* 漢堡選單按鈕 (手機版才顯示) */
         .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
+            display: none; flex-direction: column; cursor: pointer; gap: 5px;
         }
         .menu-toggle span {
-            width: 25px; height: 3px;
-            background-color: var(--dark-blue);
-            transition: 0.3s;
+            width: 25px; height: 3px; background-color: var(--dark-blue); transition: 0.3s;
         }
 
         nav ul { display: flex; list-style: none; }
@@ -68,22 +62,15 @@
         section { padding: 100px 10%; }
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('datacenter.png.webp'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--white);
-            text-align: center;
-            padding: 0 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('datacenter.png.webp'); 
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: var(--white); text-align: center; padding: 0 20px;
         }
         .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.3; }
         .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 30px; }
-        .btn { padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        
+        .btn { padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
         .btn:hover { background: #3498DB; }
 
         .title-box { text-align: center; margin-bottom: 60px; }
@@ -99,47 +86,36 @@
             display: flex; flex-direction: column; width: 100%; max-width: 320px; 
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--main-blue); margin-bottom: 15px; }
 
         .learn-more-btn {
             display: inline-block; margin-top: auto; padding-top: 25px;
-            color: var(--accent); font-weight: bold; text-decoration: none; transition: color 0.3s;
+            color: var(--accent); font-weight: bold; text-decoration: none; transition: 0.3s;
         }
-        .learn-more-btn::after { content: ' ➔'; transition: margin-left 0.3s; }
-        .learn-more-btn:hover::after { margin-left: 5px; }
+        .learn-more-btn::after { content: ' ➔'; }
         
         .contact-flex { display: flex; flex-wrap: wrap; gap: 50px; align-items: flex-start; }
         .contact-info { flex: 1; }
         .contact-item { margin-bottom: 25px; }
-        .contact-item h4 { color: var(--main-blue); margin-bottom: 5px; font-size: 1.1rem;}
+        .contact-item h4 { color: var(--main-blue); margin-bottom: 5px; }
         .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; }
 
-        /* --- 手機版響應式修正 --- */
+        /* 手機版響應式 */
         @media (max-width: 768px) { 
             nav { padding: 10px 5%; }
-            .logo-img { height: 40px; }
-            .brand-name { font-size: 1.05rem; letter-spacing: 0; }
-            .brand-sub { font-size: 0.7rem; }
-
-            .menu-toggle { display: flex; } /* 顯示漢堡按鈕 */
-
+            .menu-toggle { display: flex; }
             nav ul {
-                display: none; /* 預設隱藏選單 */
-                position: absolute; top: 100%; left: 0; width: 100%;
-                flex-direction: column; background: white;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1); padding: 10px 0;
+                display: none; position: absolute; top: 100%; left: 0; width: 100%;
+                flex-direction: column; background: white; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
-            nav ul.active { display: flex; } /* 點擊後顯示 */
+            nav ul.active { display: flex; }
             nav ul li { margin: 0; text-align: center; padding: 15px 0; border-bottom: 1px solid #eee; }
-            nav ul li:last-child { border-bottom: none; }
-
             section { padding: 60px 6%; }
             .hero { height: auto; padding: 140px 20px 80px 20px; background-attachment: scroll; }
-            .hero h1 { font-size: 1.75rem; line-height: 1.4; }
-            .hero p { font-size: 0.95rem; }
-            .about-grid, .contact-flex { grid-template-columns: 1fr; gap: 30px; }
-            .map-box { min-width: 100%; height: 300px; }
+            .hero h1 { font-size: 1.8rem; }
+            .about-grid, .contact-flex { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -147,17 +123,15 @@
 
     <nav id="navbar">
         <a href="#home" class="logo-link">
-            <img src="logo.png" alt="基曜科技 CoreInfra" class="logo-img">
+            <img src="logo.png" alt="基曜科技" class="logo-img">
             <div class="logo-text">
                 <span class="brand-name">基曜科技</span>
                 <span class="brand-sub">CoreInfra</span>
             </div>
         </a>
-
         <div class="menu-toggle" id="mobile-menu">
             <span></span><span></span><span></span>
         </div>
-
         <ul id="nav-links">
             <li><a href="#home">首頁</a></li>
             <li><a href="#about">關於我們</a></li>
@@ -179,10 +153,12 @@
                 <img src="logo.png" alt="CoreInfra 專業團隊" style="width: 100%; max-width: 380px; border-radius: 10px;">
             </div>
             <div>
-                <p><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年，由資深團隊共同創立。</p>
+                <p><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年，由一群深耕資料中心基礎設施、累積數十年實務經驗的資深團隊共同創立。</p>
                 <div class="highlight-box">
                     <p style="font-size: 1.1rem; color: var(--main-blue); font-weight: bold;">交付「可運轉、可擴充、可驗證」的資料中心。</p>
                 </div>
+                <p style="margin-bottom: 15px;"><strong>產業實戰經驗：</strong> 過去五年，全球雲服務業者在台灣大規模擴建，帶動高標準、高密度、高可靠度的建置需求。我們的核心團隊在多個關鍵專案中擔任舉足輕重的角色。</p>
+                <p>這份實戰經驗使我們能精準掌握跨單位協調與介面整合，協助客戶在時程、品質與可靠度之間取得最佳平衡。</p>
             </div>
         </div>
     </section>
@@ -192,10 +168,30 @@
         <div class="service-container">
             <div class="card">
                 <h3>1. 前期規劃設計</h3>
-                <p>提供容量規劃與細部設計服務。</p>
+                <p>提供容量規劃、場址評估與 Uptime 認證諮詢設計服務。</p>
                 <a href="service-1-design.html" class="learn-more-btn">了解更多細節</a>
             </div>
+            <div class="card">
+                <h3>2. 採購發包</h3>
+                <p>協助釐清採購規格，確立測試要求與責任邊界。</p>
+                <a href="service-2-procurement.html" class="learn-more-btn">了解更多細節</a>
             </div>
+            <div class="card">
+                <h3>3. 建置與安裝</h3>
+                <p>EPC 一站式整合交付，PCM 專業管理確保工程品質。</p>
+                <a href="service-3-construction.html" class="learn-more-btn">了解更多細節</a>
+            </div>
+            <div class="card">
+                <h3>4. 測試驗收與投產</h3>
+                <p>落實 L1-L5 驗收框架，強化資料中心投產可用性。</p>
+                <a href="service-4-cx.html" class="learn-more-btn">了解更多細節</a>
+            </div>
+            <div class="card">
+                <h3>5. 維護保養與營運</h3>
+                <p>導入維運制度、關鍵設施維護與既有機房升級改造。</p>
+                <a href="service-5-ops.html" class="learn-more-btn">了解更多細節</a>
+            </div>
+        </div>
     </section>
 
     <section id="contact">
@@ -209,7 +205,7 @@
                 <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" class="btn">📝 預約技術相談</a>
             </div>
             <div class="map-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.793704259836!2d121.5298888!3d24.9731667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346801ff2a5a546d%3A0xc3f12ef0d2b37c68!2zMTEw5Y-w5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbqiJ8xNw!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.711811807661!2d121.5284711!3d24.9759325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468020088556857%3A0x70be6559b359c193!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbomJPkuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711420000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" tabindex="-1"></iframe>
             </div>
         </div>
     </section>
@@ -219,7 +215,10 @@
     </footer>
 
     <script>
-        // 1. 處理手機版選單開關
+        // 強制加載時滾動到最上方
+        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+        window.scrollTo(0, 0);
+
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
         
@@ -227,14 +226,12 @@
             navLinks.classList.toggle('active');
         });
 
-        // 2. 點擊連結後自動縮回選單
         document.querySelectorAll('#nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // 3. 處理滾動效果
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
