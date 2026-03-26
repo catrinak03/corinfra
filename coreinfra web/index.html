@@ -110,7 +110,7 @@
         .contact-info { flex: 1; }
         .contact-item { margin-bottom: 25px; }
         .contact-item h4 { color: var(--main-blue); margin-bottom: 5px; font-size: 1.1rem;}
-        .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; }
 
         footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; }
 
@@ -161,6 +161,8 @@
         </ul>
     </nav>
 
+    <div id="top"></div>
+
     <section id="home" class="hero">
         <h1>資料中心基礎設施<br>全生命週期專業夥伴</h1>
         <p>提供從策略規劃、工程交付到穩定運維的系統工程。<br>以專業經驗與可落地的能力，成為您最可靠的長期合作夥伴。</p>
@@ -174,18 +176,16 @@
                 <img src="logo.png" alt="CoreInfra 專業團隊" style="width: 100%; max-width: 380px; border-radius: 10px;">
             </div>
             <div>
-    <p><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年，由一群長期深耕資料中心基礎設施產業、累積數十年實務經驗的資深團隊共同創立。</p>
-    
-    <div class="highlight-box">
-        <p style="margin-bottom: 10px;"><strong>🏆 我們的核心承諾：</strong></p>
-        <p style="font-size: 1.1rem; color: var(--main-blue); font-weight: bold;">交付「可運轉、可擴充、可驗證」的資料中心。</p>
-    </div>
-
-    <p style="margin-bottom: 15px;"><strong>產業實戰經驗：</strong> 過去五年，全球雲服務業者在台灣大規模擴建，帶動高標準、高密度、高可靠度的建置需求。我們的核心團隊在多個關鍵專案中擔任舉足輕重的角色。</p>
-    
-    <p>這份實戰經驗使基曜能精準掌握跨單位協調、介面整合，以及雲端客戶對可用性與交付節點的核心要求，協助客戶在時程、品質、可靠度與合規之間取得最佳平衡。</p>
-</div>
-        </div> </section>
+                <p><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年，由一群長期深耕資料中心基礎設施產業、累積數十年實務經驗的資深團隊共同創立。</p>
+                <div class="highlight-box">
+                    <p style="margin-bottom: 10px;"><strong>🏆 我們的核心承諾：</strong></p>
+                    <p style="font-size: 1.1rem; color: var(--main-blue); font-weight: bold;">交付「可運轉、可擴充、可驗證」的資料中心。</p>
+                </div>
+                <p style="margin-bottom: 15px;"><strong>產業實戰經驗：</strong> 過去五年，全球雲服務業者在台灣大規模擴建，帶動高標準、高密度、高可靠度的建置需求。我們的核心團隊在多個關鍵專案中擔任舉足輕重的角色。</p>
+                <p>這份實戰經驗使基曜能精準掌握跨單位協調、介面整合，以及雲端客戶對可用性與交付節點的核心要求，協助客戶在時程、品質、可靠度與合規之間取得最佳平衡。</p>
+            </div>
+        </div>
+    </section>
 
     <section id="services" style="background-color: var(--light-bg);">
         <div class="title-box"><h2>核心服務模組</h2></div>
@@ -231,7 +231,7 @@
             <div class="map-box">
                 <iframe 
                     title="Google Map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.5912444634285!2d121.52731837595304!3d24.979201940460395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468020615433013%3A0xc6d0107292275685!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbomZ_kuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711420000000!5m2!1szh-TW!2stw" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.442971271618!2d121.5284803!3d24.9849504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346802008894101d%3A0x633519c5220c5765!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbmqJPkuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711425600000!5m2!1szh-TW!2stw" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
@@ -243,8 +243,14 @@
     </footer>
 
     <script>
-        // [修正 3] 移除 window.onload 強制置頂的腳本，這通常是「跳回首頁」的罪魁禍首
-        
+        // 解決開啟網站跳轉到底部的終極方案
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual'; // 禁止瀏覽器記住上次滾動位置
+        }
+
+        // 頁面加載時強制滾動到頂部
+        window.scrollTo(0, 0);
+
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
         
