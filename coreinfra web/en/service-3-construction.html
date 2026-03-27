@@ -143,4 +143,113 @@
     </footer>
 
 </body>
+</html>        .brand-name { font-size: 1.3rem; font-weight: 700; color: #1A2B3C; letter-spacing: 1px; }
+        .brand-sub { font-size: 0.85rem; font-weight: 500; color: #4A6274; letter-spacing: 0.5px; }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: var(--dark-blue); font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent); }
+
+        /* --- 分頁標題區 --- */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 10%;
+            background: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+        }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--accent); }
+        .page-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #ddd; }
+
+        /* --- 內容區塊 --- */
+        .content-section { padding: 60px 10%; max-width: 1200px; margin: 0 auto; background: var(--white); box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; margin-top: -30px; position: relative; }
+        
+        .construction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .item-card { border: 1px solid #eee; padding: 30px; border-radius: 12px; position: relative; }
+        .item-card h3 { color: var(--main-blue); margin-bottom: 15px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        .item-card ul { list-style: none; }
+        .item-card ul li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .item-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+
+        .nav-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap; }
+        .back-btn { display: inline-block; padding: 12px 30px; background: var(--main-blue); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .back-btn:hover { background: var(--dark-blue); }
+        .next-btn { display: inline-block; padding: 12px 30px; background: var(--accent); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .next-btn:hover { background: #3498DB; }
+
+        footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; margin-top: 60px; }
+
+        @media (max-width: 768px) { nav ul, .construction-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="../index.html" class="logo-link">
+            <img src="../logo.png" alt="CoreInfra" class="logo-img">
+            <div class="logo-text">
+                <span class="brand-name">CoreInfra</span>
+                <span class="brand-sub">Systems</span>
+            </div>
+        </a>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="../service-3-construction.html" style="color: var(--accent); font-weight: 700;">TW</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>3. Construction & Installation</h1>
+        <p>Construction & Installation</p>
+    </header>
+
+    <section class="content-section">
+        <h2 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">Standardized, Modular, and High-Quality Delivery</h2>
+        <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">CoreInfra Systems has the capability to coordinate EPC (Engineering, Procurement, and Construction) projects. Through rigorous PCM (Project Construction Management) processes, we simplify complex construction interfaces and ensure every detail of the data center infrastructure complies with international standards.</p>
+
+        <div class="construction-grid">
+            <div class="item-card">
+                <h3>EPC One-Stop Integrated Delivery</h3>
+                <p style="margin-bottom: 15px; color: #555;">Providing comprehensive services from shop drawing reviews to final acceptance:</p>
+                <ul>
+                    <li>International standardized delivery management</li>
+                    <li>Cross-system interface integration (MEP, HVAC, ELV)</li>
+                    <li>Construction quality management (QA/QC) and site inspections</li>
+                    <li>Strict control of Health, Safety, and Environment (HSE)</li>
+                </ul>
+            </div>
+
+            <div class="item-card">
+                <h3>PCM Professional Project Management</h3>
+                <p style="margin-bottom: 15px; color: #555;">Acting as the client's most reliable representative and technical advisor:</p>
+                <ul>
+                    <li>Project schedule optimization and timeline control</li>
+                    <li>Coordination for long-lead items arrival</li>
+                    <li>Subcontractor management and construction conflict resolution</li>
+                    <li>Project risk early warning and cost control</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="background: var(--light-bg); padding: 40px; border-radius: 12px; margin-top: 40px; text-align: center;">
+            <h3 style="color: var(--main-blue); margin-bottom: 15px;">Our Core Value</h3>
+            <p style="color: #444; font-size: 1.1rem; font-weight: 500;">"Not just completing a project, but delivering a stably operating asset."</p>
+            <p style="font-size: 0.95rem; color: #666; margin-top: 10px;">We deeply understand cloud clients' strict requirements for Ready for Service (RFS) milestones. Through highly efficient integration and coordination, we help clients shorten the time-to-market.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="service-2-procurement.html" class="back-btn">← Prev: Procurement</a>
+            <a href="../index.html#services" class="back-btn" style="background: #95a5a6;">Back to Services</a>
+            <a href="service-4-cx.html" class="next-btn">Next: Commissioning →</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 CoreInfra Systems Co., Ltd. All Rights Reserved.</p>
+    </footer>
+
+</body>
 </html>
