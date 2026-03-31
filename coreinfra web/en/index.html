@@ -3,187 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreInfra | Data Center Infrastructure Professional Partner</title>
+    <title>CoreInfra Systems | Your Professional Partner for Data Center Infrastructure Lifecycle</title>
     
     <meta http-equiv="Content-Language" content="en">
-    <link rel="alternate" hreflang="zh-TW" href="https://你的網址.com/index.html" />
-    <link rel="alternate" hreflang="en" href="https://你的網址.com/en/index.html" />
-    <link rel="alternate" hreflang="x-default" href="https://你的網址.com/index.html" />
-
-    <link rel="icon" href="../logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="../logo.png">
+    <link rel="icon" href="logo.png" type="image/png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --main-blue: #4A6274;
-            --dark-blue: #2C3E50;
-            --light-bg: #F8FAFC;
-            --accent: #5DADE2;
+            /* --- Design System Colors --- */
+            --primary: #1A2B3C;    
+            --secondary: #4A6274;  
+            --tertiary: #5DADE2;   
+            --neutral: #F8F9FA;    
             --white: #ffffff;
-            --timeline-blue: #5DADE2; 
+            
+            /* --- Typography --- */
+            --font-headline: 'Manrope', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* --- Shape --- */
+            --radius: 6px; 
+            --radius-lg: 12px;
         }
 
-        * {
-            margin: 0; padding: 0; box-sizing: border-box;
-            font-family: 'Noto Sans TC', sans-serif;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body { 
+            color: var(--primary); 
+            line-height: 1.7; 
+            overflow-x: hidden;
+            background-color: var(--white);
+            font-family: var(--font-body);
         }
 
-        html {
-            scroll-behavior: smooth;
+        h1, h2, h3, .brand-name {
+            font-family: var(--font-headline);
+            font-weight: 800;
         }
 
-        body { color: #333; line-height: 1.8; overflow-x: hidden; }
-
-        /* --- 導覽列 --- */
+        /* --- Navigation --- */
         nav {
             position: fixed; width: 100%; top: 0;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 8%; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 10px rgba(26, 43, 60, 0.05);
             transition: 0.3s;
         }
 
         .logo-link { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 60px; width: auto; transition: 0.3s ease; }
-        nav.scrolled { padding: 8px 8%; }
-        nav.scrolled .logo-img { height: 45px; }
+        .logo-img { height: 55px; width: auto; transition: 0.3s ease; }
+        nav.scrolled { padding: 10px 8%; }
+        nav.scrolled .logo-img { height: 40px; }
 
-        .menu-toggle {
-            display: none; flex-direction: column; cursor: pointer; gap: 5px;
-        }
-        .menu-toggle span {
-            width: 25px; height: 3px; background-color: var(--dark-blue); transition: 0.3s;
-        }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; margin-left: 12px; }
+        .brand-name { font-size: 1.25rem; color: var(--primary); letter-spacing: 0.5px; }
+        .brand-sub { font-size: 0.8rem; font-family: var(--font-body); font-weight: 500; color: var(--secondary); text-transform: uppercase; }
 
         nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 30px; }
-        nav ul li a { text-decoration: none; color: var(--dark-blue); font-weight: 500; transition: 0.3s; }
-        nav ul li a:hover { color: var(--accent); }
+        nav ul li { margin-left: 32px; }
+        nav ul li a { 
+            text-decoration: none; 
+            color: var(--secondary); 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: 0.3s; 
+        }
+        nav ul li a:hover { color: var(--primary); }
+        .nav-lang { color: var(--primary) !important; font-weight: 700 !important; }
 
-        .logo-text { display: flex; flex-direction: column; line-height: 1.2; margin-left: 10px; }
-        .brand-name { font-size: 1.3rem; font-weight: 700; color: #1A2B3C; letter-spacing: 1px; }
-        .brand-sub { font-size: 0.85rem; font-weight: 500; color: #4A6274; letter-spacing: 0.5px; }
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 2px; background-color: var(--primary); transition: 0.3s; }
 
-        /* --- 區塊樣式 --- */
-        section { padding: 100px 10%; }
+        /* --- Buttons --- */
+        .btn { 
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 36px; background: var(--tertiary); color: white; 
+            text-decoration: none; border-radius: var(--radius); 
+            font-weight: 600; transition: 0.3s; cursor: pointer; border: none;
+        }
+        .btn:hover { background: #4ba0d5; transform: translateY(-2px); }
+        
+        .btn-dark { 
+            background: var(--primary) !important; 
+        }
+        .btn-dark:hover { 
+            background: #0d1a26 !important; 
+        }
+
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
-            /* 👇 背景圖片加上 ../ 返回上一層 👇 */
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../datacenter.png.webp'); 
+            background: linear-gradient(rgba(26, 43, 60, 0.75), rgba(26, 43, 60, 0.75)), url('../datacenter.png.webp'); 
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: var(--white); text-align: center; padding: 0 20px;
         }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.3; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 30px; }
-        
-        .btn { display: inline-block; padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
-        .btn:hover { background: #3498DB; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 24px; line-height: 1.2; letter-spacing: -1px; }
+        .hero p { font-size: 1.15rem; max-width: 800px; margin-bottom: 35px; opacity: 0.9; font-weight: 400; }
 
-        .title-box { text-align: center; margin-bottom: 60px; }
-        .title-box h2 { font-size: 2.2rem; color: var(--main-blue); position: relative; padding-bottom: 15px; }
-        .title-box h2::after { content: ''; position: absolute; width: 60px; height: 4px; background: var(--accent); bottom: 0; left: 50%; transform: translateX(-50%); }
+        /* --- Title Styles --- */
+        .title-box { text-align: center; margin-bottom: 70px; }
+        .title-box h2 { font-size: 2.25rem; color: var(--primary); position: relative; padding-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .title-box h2::after { 
+            content: ''; position: absolute; width: 40px; height: 4px; 
+            background: var(--tertiary); bottom: 0; left: 50%; transform: translateX(-50%); 
+            border-radius: 2px;
+        }
 
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .highlight-box { background: var(--light-bg); padding: 30px; border-radius: 10px; margin: 25px 0; border-left: 4px solid var(--accent); }
-        
-        .service-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        /* --- About Section --- */
+        section { padding: 100px 10%; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; }
+        .highlight-box { 
+            background: var(--neutral); padding: 35px; border-radius: var(--radius); 
+            margin: 30px 0; border-left: 5px solid var(--tertiary); 
+        }
+        .highlight-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .highlight-header svg { width: 20px; height: 20px; fill: var(--tertiary); }
+        .highlight-header span { color: var(--primary); font-family: var(--font-headline); letter-spacing: 0.5px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+
+        /* --- Service Cards --- */
+        .service-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
         .card { 
-            background: var(--white); padding: 40px; border-radius: 12px; border: 1px solid #eee; transition: 0.3s; 
+            background: var(--white); padding: 45px 35px; border-radius: var(--radius-lg); 
+            border: 1px solid #E9ECEF; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
             display: flex; flex-direction: column; width: 100%; max-width: 320px; 
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .card h3 { color: var(--main-blue); margin-bottom: 15px; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(26, 43, 60, 0.08); border-color: var(--tertiary); }
+        .card h3 { color: var(--primary); margin-bottom: 8px; font-size: 1.15rem; min-height: 3rem; }
+        .card .service-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--tertiary); font-weight: 700; margin-bottom: 15px; }
+        .card p { font-size: 0.9rem; color: var(--secondary); margin-bottom: 20px; flex-grow: 1; }
 
         .learn-more-btn {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
+            color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 700;
+            display: flex; align-items: center; transition: 0.3s;
         }
-        .learn-more-btn:hover {
-            text-decoration: underline;
-        }
+        .learn-more-btn::after { content: ' →'; transition: 0.3s; }
+        .learn-more-btn:hover { color: var(--tertiary); }
+        .learn-more-btn:hover::after { transform: translateX(5px); }
 
-        .contact-flex { display: flex; flex-wrap: wrap; gap: 50px; align-items: flex-start; }
+        /* --- Timeline --- */
+        .timeline-container { padding: 40px 0 80px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .timeline-svg { min-width: 820px; }
+        .animated-line { stroke: var(--tertiary); stroke-width: 3; fill: none; }
+        .step-text tspan[font-weight="bold"] { fill: var(--primary) !important; font-family: var(--font-headline); }
+
+        /* --- Contact --- */
+        .contact-flex { display: flex; flex-wrap: wrap; gap: 60px; }
         .contact-info { flex: 1; }
-        .contact-item { margin-bottom: 25px; }
-        .contact-item h4 { color: var(--main-blue); margin-bottom: 5px; }
-        .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .contact-item { display: flex; gap: 15px; margin-bottom: 30px; }
+        .contact-icon { width: 44px; height: 44px; background: var(--neutral); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-icon svg { width: 20px; height: 20px; fill: var(--primary); }
+        .contact-item h4 { color: var(--primary); margin-bottom: 4px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .contact-item p { color: var(--secondary); font-size: 0.95rem; }
+        .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; }
+        footer { background: var(--primary); color: rgba(255,255,255,0.7); text-align: center; padding: 60px 40px; font-size: 0.9rem; }
 
-        /* ====== 進步圖 (Timeline) 動畫樣式 ====== */
-        .timeline-container {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px 0 60px 0;
-            text-align: center;
-        }
-
-        .timeline-svg {
-            width: 100%;
-            height: auto;
-            overflow: visible;
-        }
-
-        /* 主線條 */
-        .animated-line {
-            fill: none;
-            stroke: var(--timeline-blue);
-            stroke-width: 4;
-            transition: stroke-dashoffset 2.5s linear; 
-        }
-
-        /* 箭頭與圓點 */
-        .animated-arrow {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        /* 內嵌文字 */
-        .step-text {
-            opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-
-        .timeline-container.active .animated-line { stroke-dashoffset: 0 !important; }
-        .timeline-container.active .step-0-arrow { opacity: 1; transition-delay: 0s; }
-        .timeline-container.active .step-1, .timeline-container.active .step-1-arrow { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
-        .timeline-container.active .step-2, .timeline-container.active .step-2-arrow { opacity: 1; transform: translateY(0); transition-delay: 1.0s; }
-        .timeline-container.active .step-3, .timeline-container.active .step-3-arrow { opacity: 1; transform: translateY(0); transition-delay: 1.5s; }
-        .timeline-container.active .step-4, .timeline-container.active .step-4-arrow { opacity: 1; transform: translateY(0); transition-delay: 2.0s; }
-        .timeline-container.active .step-5, .timeline-container.active .step-5-arrow { opacity: 1; transform: translateY(0); transition-delay: 2.5s; }
-
-        /* 手機版響應式 */
-       @media (max-width: 768px) { 
-            nav { padding: 10px 5%; }
+        /* --- Responsive --- */
+        @media (max-width: 768px) { 
+            nav { padding: 12px 5%; }
             .menu-toggle { display: flex; }
             nav ul {
                 display: none; position: absolute; top: 100%; left: 0; width: 100%;
-                flex-direction: column; background: white; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                flex-direction: column; background: white; padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             }
             nav ul.active { display: flex; }
-            nav ul li { margin: 0; text-align: center; padding: 15px 0; border-bottom: 1px solid #eee; }
-            section { padding: 60px 6%; }
-            .hero { height: auto; padding: 140px 20px 80px 20px; background-attachment: scroll; }
-            .hero h1 { font-size: 1.8rem; }
-            .about-grid, .contact-flex { grid-template-columns: 1fr; }
-
-            .hero p { 
-                font-size: 1rem;       
-                line-height: 1.6;      
-                padding: 0 10px;       
-                margin-top: 15px;      
-                color: #555;           
-            }
+            nav ul li { margin: 0; text-align: center; padding: 12px 0; }
+            section { padding: 80px 6%; }
+            .hero h1 { font-size: 2.2rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
@@ -191,7 +184,7 @@
 
     <nav id="navbar">
         <a href="#home" class="logo-link">
-            <img src="../logo.png" alt="CoreInfra" class="logo-img">
+            <img src="../logo.png" alt="CoreInfra Systems" class="logo-img">
             <div class="logo-text">
                 <span class="brand-name">CoreInfra</span>
                 <span class="brand-sub">Systems</span>
@@ -205,117 +198,86 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="../index.html" style="color: var(--accent); font-weight: 700;">TW</a></li>
+            <li><a href="../index.html" class="nav-lang">繁中</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
-        <h1>Data Center Infrastructure<br>Lifecycle Professional Partner</h1>
-        <p>Providing system engineering from strategic planning and engineering delivery to stable operations.<br>With professional experience and practical capabilities, we are your most reliable long-term partner.</p>
-        <a href="#contact" class="btn">Contact Experts</a>
+        <h1>Data Center Infrastructure<br>Lifecycle Expert Partner</h1>
+        <p>From strategic planning and engineering delivery to stable operations.<br>We provide professional expertise and actionable solutions to be your most reliable long-term partner.</p>
+        <a href="#contact" class="btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Contact our Experts
+        </a>
     </section>
 
     <section id="about">
         <div class="title-box"><h2>About Us</h2></div>
         <div class="about-grid">
             <div style="text-align: center;">
-                <img src="../logo.png" alt="CoreInfra" style="width: 100%; max-width: 380px; border-radius: 10px;">
+                <img src="../logo.png" alt="CoreInfra" style="width: 100%; max-width: 360px; border-radius: var(--radius-lg);">
             </div>
            <div>
-                <p><strong>CoreInfra Systems</strong> was established in 2025 by a senior team deeply rooted in the data center infrastructure industry with decades of practical experience.</p>
+                <p><strong>CoreInfra Systems</strong> was founded in 2025 by a senior team with decades of hands-on experience in the data center infrastructure industry.</p>
                 <div class="highlight-box">
-                    <p style="margin-bottom: 10px;"><strong>🏆 Our Core Commitment:</strong></p>
-                    <p style="font-size: 1.1rem; color: var(--main-blue); font-weight: bold;">Delivering "Operable, Scalable, and Verifiable" Data Centers.</p>
+                    <div class="highlight-header">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <span>Our Core Commitment</span>
+                    </div>
+                    <p style="font-size: 1.25rem; color: var(--primary); font-weight: 700;">Delivering "Operational, Scalable, and Verifiable" Data Centers.</p>
                 </div>
-                <p><strong>Industry Experience:</strong> Over the past five years, global cloud service providers have rapidly expanded in Taiwan, driving high-standard, high-density, and high-reliability construction demands.</p>
-                <br>
-                <p>This practical experience enables CoreInfra to accurately grasp <strong>cross-departmental coordination, interface integration</strong>, and cloud clients' core requirements for <strong>availability and delivery milestones</strong>.</p>
+                <p style="color: var(--secondary);">Our practical experience enables CoreInfra to precisely master <strong>cross-departmental coordination, interface integration</strong>, and the stringent availability and delivery requirements of cloud service providers.</p>
             </div>
         </div>
     </section>
 
-    <section id="services" style="background-color: var(--light-bg);">
-        <div class="title-box">
-            <h2>Core Services</h2>
-        </div>
-
+    <section id="services" style="background-color: var(--neutral);">
+        <div class="title-box"><h2>Core Service Modules</h2></div>
         <div class="timeline-container" id="timeline">
             <svg class="timeline-svg" viewBox="0 0 820 200" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <polyline id="arrow-head" points="-10,-10 0,0 -10,10" fill="none" stroke="var(--timeline-blue)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline id="arrow-head" points="-8,-8 0,0 -8,8" fill="none" stroke="var(--tertiary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                 </defs>
-
                 <path class="animated-line" id="myPath" d="M 40 100 L 60 100 C 110 50, 150 50, 200 100 C 250 150, 290 150, 340 100 C 390 50, 430 50, 480 100 C 530 150, 570 150, 620 100 C 670 50, 710 50, 760 100 L 790 100" />
-
-                <circle cx="40" cy="100" r="6" fill="var(--timeline-blue)" class="animated-arrow step-0-arrow" />
-                <use href="#arrow-head" x="790" y="100" transform="rotate(0 790 100)" class="animated-arrow step-5-arrow"/>
-
-                <text x="130" y="60" text-anchor="middle" class="step-text step-1">
-                    <tspan x="130" dy="0" font-weight="bold" fill="var(--dark-blue)" font-size="16">Planning</tspan>
-                    <tspan x="130" dy="22" fill="#666" font-size="12">Assessment & Design</tspan>
-                </text>
-                
-                <text x="270" y="150" text-anchor="middle" class="step-text step-2">
-                    <tspan x="270" dy="0" font-weight="bold" fill="var(--dark-blue)" font-size="16">Procurement</tspan>
-                    <tspan x="270" dy="22" fill="#666" font-size="12">Equipment & Vendors</tspan>
-                </text>
-                
-                <text x="410" y="60" text-anchor="middle" class="step-text step-3">
-                    <tspan x="410" dy="0" font-weight="bold" fill="var(--dark-blue)" font-size="16">Construction</tspan>
-                    <tspan x="410" dy="22" fill="#666" font-size="12">Installation & Integration</tspan>
-                </text>
-                
-                <text x="550" y="150" text-anchor="middle" class="step-text step-4">
-                    <tspan x="550" dy="0" font-weight="bold" fill="var(--dark-blue)" font-size="16">Commissioning</tspan>
-                    <tspan x="550" dy="22" fill="#666" font-size="12">Validation & Go-Live</tspan>
-                </text>
-                
-                <text x="690" y="60" text-anchor="middle" class="step-text step-5">
-                    <tspan x="690" dy="0" font-weight="bold" fill="var(--dark-blue)" font-size="16">Operations</tspan>
-                    <tspan x="690" dy="22" fill="#666" font-size="12">Maintenance & Monitoring</tspan>
-                </text>
+                <circle cx="40" cy="100" r="5" fill="var(--tertiary)" />
+                <use href="#arrow-head" x="790" y="100" />
+                <text x="130" y="55" text-anchor="middle" class="step-text"><tspan x="130" dy="0" font-weight="bold" font-size="14">Planning & Design</tspan><tspan x="130" dy="22" font-size="11">Needs Assessment</tspan></text>
+                <text x="270" y="150" text-anchor="middle" class="step-text"><tspan x="270" dy="0" font-weight="bold" font-size="14">Procurement</tspan><tspan x="270" dy="22" font-size="11">Vendor Management</tspan></text>
+                <text x="410" y="55" text-anchor="middle" class="step-text"><tspan x="410" dy="0" font-weight="bold" font-size="14">Construction</tspan><tspan x="410" dy="22" font-size="11">Integration Management</tspan></text>
+                <text x="550" y="150" text-anchor="middle" class="step-text"><tspan x="550" dy="0" font-weight="bold" font-size="14">Commissioning</tspan><tspan x="550" dy="22" font-size="11">Validation & Handover</tspan></text>
+                <text x="690" y="55" text-anchor="middle" class="step-text"><tspan x="690" dy="0" font-weight="bold" font-size="14">Operation & Maint.</tspan><tspan x="690" dy="22" font-size="11">Long-term Reliability</tspan></text>
             </svg>
         </div>
-        
         <div class="service-container">
             <div class="card">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">📐</div>
-                <h3 style="font-size: 1.2rem;">1. Strategy & Design</h3>
-                <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Pre-planning</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">Providing capacity planning, certification consulting, and detailed design compliant with regulations.</p>
-                <a href="../service-1-design.html" class="learn-more-btn">Learn More</a>
+                <div class="service-tag">Strategy & Design</div>
+                <h3>1. Planning & Design</h3>
+                <p>Capacity planning, certification consulting, and detailed design that comply with local regulations.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
             </div>
-
             <div class="card">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">🤝</div>
-                <h3 style="font-size: 1.2rem;">2. Procurement</h3>
-                <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Tendering</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">Assisting in clarifying procurement specs, testing requirements, and liability boundaries.</p>
-                <a href="../service-2-procurement.html" class="learn-more-btn">Learn More</a>
+                <div class="service-tag">Procurement</div>
+                <h3>2. Procurement</h3>
+                <p>Clarifying procurement specs, testing requirements, and defining responsibility boundaries.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
             </div>
-
             <div class="card">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">🏗️</div>
-                <h3 style="font-size: 1.2rem;">3. Construction</h3>
-                <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Installation</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">EPC one-stop integrated delivery, controlling progress through professional PCM.</p>
-                <a href="../service-3-construction.html" class="learn-more-btn">Learn More</a>
+                <div class="service-tag">Construction</div>
+                <h3>3. Construction & Setup</h3>
+                <p>EPC integrated delivery with professional PCM management to ensure schedule control.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
             </div>
-
             <div class="card">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">🧪</div>
-                <h3 style="font-size: 1.2rem;">4. Commissioning</h3>
-                <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Testing & Go-Live</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">Implementing L1-L5 acceptance frameworks to strengthen operational availability.</p>
-                <a href="../service-4-cx.html" class="learn-more-btn">Learn More</a>
+                <div class="service-tag">Commissioning</div>
+                <h3>4. CX & Production</h3>
+                <p>Implementing L1-L5 commissioning frameworks to ensure high availability at production launch.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
             </div>
-
             <div class="card">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">🛡️</div>
-                <h3 style="font-size: 1.2rem;">5. Operations</h3>
-                <p style="margin-bottom: 15px; color: var(--main-blue); font-weight: 500; font-size: 0.9rem;">Maintenance</p>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">Introducing perfect O&M systems, upgrading existing facilities, and optimizing reliability.</p>
-                <a href="../service-5-ops.html" class="learn-more-btn">Learn More</a>
+                <div class="service-tag">Operations</div>
+                <h3>5. Operations & Maint.</h3>
+                <p>Establishing robust O&M systems, facility upgrades, and reliability optimization.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
             </div>
         </div>
     </section>
@@ -324,41 +286,35 @@
         <div class="title-box"><h2>Contact Us</h2></div>
         <div class="contact-flex">
             <div class="contact-info">
-                <div class="contact-item"><h4>📍 Address</h4><p>16F.-17, No. 153, Zhongyang Rd., Xindian Dist., New Taipei City</p></div>
-                <div class="contact-item"><h4>📞 Phone</h4><p>+886-922-106813</p></div>
-                <div class="contact-item"><h4>📧 Email</h4><p>Catrina.Kao@coreinfra-tw.com</p></div>
+                <div class="contact-item">
+                    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+                    <div><h4>Office Address</h4><p>16F.-17, No. 153, Zhongyang Rd., Xindian Dist., New Taipei City, Taiwan</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+                    <div><h4>Phone Number</h4><p>+886-922-106813</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+                    <div><h4>E-mail</h4><p>Catrina.Kao@coreinfra-tw.com</p></div>
+                </div>
                 <br>
-                <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" class="btn">📝 Book a Consultation</a>
+                <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" class="btn btn-dark">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    Book a Technical Consultation
+                </a>
             </div>
            <div class="map-box">
-                <iframe 
-                    id="gmap"
-                    data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.186638421482!2d121.5283401!3d24.9767786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468021da3b6d271%3A0x6b6e4e5e78342750!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbmqJPkuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711430000000!5m2!1szh-TW!2stw" 
-                    width="100%" height="100%" style="border:0;" 
-                    allowfullscreen="" loading="lazy"
-                    tabindex="-1"
-                    sandbox="allow-scripts allow-same-origin allow-popups">
-                </iframe>
+                <iframe id="gmap" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.541355470248!2d121.5284143!3d24.9817179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346802102f663f73%3A0xc39105436f562477!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbomZ_kuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711880000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 CoreInfra Systems Co., Ltd. All Rights Reserved.</p>
+        <p>© 2025 CoreInfra Systems Co., Ltd. <br> All Rights Reserved.</p>
     </footer>
 
    <script>
-        // JS 區塊完全未刪減，保持原樣
-        if ('scrollRestoration' in history) { 
-            history.scrollRestoration = 'manual'; 
-        }
-
-        if (window.location.hash) {
-            window.history.replaceState('', document.title, window.location.pathname + window.location.search);
-        }
-
-        setTimeout(() => { window.scrollTo(0, 0); }, 1);
-
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
         menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
@@ -368,37 +324,26 @@
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
 
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const mapIframe = document.getElementById('gmap');
-                if (mapIframe) {
-                    mapIframe.src = mapIframe.getAttribute('data-src');
-                }
-            }, 1000);
-        });
-
+        // Timeline Path Logic
         const path = document.getElementById('myPath');
         const pathLength = path.getTotalLength();
         path.style.strokeDasharray = pathLength;
-        path.style.strokeDashoffset = pathLength; 
+        path.style.strokeDashoffset = pathLength;
 
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5 
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); 
+                    path.style.transition = 'stroke-dashoffset 2s ease-in-out';
+                    path.style.strokeDashoffset = '0';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.5 });
+        observer.observe(document.getElementById('timeline'));
 
-        const timelineContainer = document.getElementById('timeline');
-        observer.observe(timelineContainer);
+        window.addEventListener('load', () => {
+            const mapIframe = document.getElementById('gmap');
+            if (mapIframe) mapIframe.src = mapIframe.getAttribute('data-src');
+        });
     </script>
 </body>
 </html>
