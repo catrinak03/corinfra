@@ -166,8 +166,9 @@
 
         footer { background: var(--primary); color: rgba(255,255,255,0.7); text-align: center; padding: 60px 40px; font-size: 0.9rem; }
 
-        /* --- Responsive --- */
+       /* --- Responsive --- */
         @media (max-width: 768px) { 
+            /* 導覽列 */
             nav { padding: 12px 5%; }
             .menu-toggle { display: flex; }
             nav ul {
@@ -177,9 +178,59 @@
             }
             nav ul.active { display: flex; }
             nav ul li { margin: 0; text-align: center; padding: 12px 0; }
-            section { padding: 80px 6%; }
-            .hero h1 { font-size: 2.2rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            
+            /* 整體區塊間距縮小 */
+            section { padding: 60px 6%; }
+            
+            /* --- Hero Section 優化 --- */
+            /* 字體適度縮小，調整行高與間距，並利用 padding 與 keep-all 避免孤字與不自然換行 */
+            .hero { padding: 0 5%; }
+            .hero h1 { 
+                font-size: 1.85rem; 
+                line-height: 1.35; 
+                letter-spacing: 0.5px; 
+                margin-bottom: 20px;
+                word-break: keep-all; 
+            }
+            .hero p { 
+                font-size: 0.95rem; 
+                line-height: 1.6; 
+                margin-bottom: 30px;
+                padding: 0 10px; /* 縮減兩側寬度，強制文字在適當位置換行 */
+            }
+
+            /* --- 標題與通用排版縮小 --- */
+            .title-box { margin-bottom: 45px; }
+            .title-box h2 { font-size: 1.8rem; padding-bottom: 15px; }
+            
+            /* --- 關於我們 --- */
+            .about-grid { grid-template-columns: 1fr; gap: 35px; }
+            .highlight-box { padding: 25px; margin: 20px 0; }
+            .highlight-box p { font-size: 1.1rem !important; line-height: 1.5; }
+            
+            /* --- 服務模組與時間軸 --- */
+            /* 解決 SVG 縮放導致字體過小問題，改為橫向滑動 */
+            .timeline-container { 
+                overflow-x: auto; 
+                padding-bottom: 20px; 
+                -webkit-overflow-scrolling: touch; 
+            }
+            .timeline-svg { min-width: 680px; }
+            
+            .card { padding: 30px 25px; max-width: 100%; }
+            .card h3 { font-size: 1.15rem; }
+            .card p { font-size: 0.9rem; }
+            
+            /* --- 聯絡我們與地圖 --- */
+            .contact-flex { gap: 40px; }
+            .contact-item h4 { font-size: 0.85rem; }
+            .contact-item p { font-size: 0.9rem; word-break: break-all; }
+            
+            /* 修正地圖在小螢幕爆版的問題 */
+            .map-box { min-width: 100%; height: 320px; }
+            
+            /* 按鈕滿版，提升手機點擊體驗 */
+            .contact-info .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
