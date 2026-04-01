@@ -395,9 +395,41 @@
         }, { threshold: 0.5 });
         observer.observe(document.getElementById('timeline'));
 
+        // ==========================================
+        //  以下為新增：優化錨點滾動與網址列清理邏輯
+        // ==========================================
+        
+        // 1. 攔截所有錨點連結點擊，達成平滑滾動但不改變網址列
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // 阻止瀏覽器預設將 # 加到網址列的行為
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // 執行平滑滾動
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // 順手優化：如果是在手機版點選單，點擊後自動收起導覽列
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
         window.addEventListener('load', () => {
+            // 原有的地圖延遲載入邏輯
             const mapIframe = document.getElementById('gmap');
             if (mapIframe) mapIframe.src = mapIframe.getAttribute('data-src');
+
+            // 2. 網頁載入時清理網址：如果有人帶有 #contact 的網址進來，清理掉但不觸發重新整理
+            if (window.location.hash) {
+                setTimeout(() => {
+                    history.replaceState(null, null, window.location.pathname + window.location.search);
+                }, 10);
+            }
         });
     </script>
 </body>
