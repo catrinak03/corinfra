@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategy & Design | CoreInfra</title>
+    
+    <meta http-equiv="Content-Language" content="en">
+    <link rel="alternate" hreflang="zh-TW" href="https://你的網址.com/service-1-design.html" />
+    <link rel="alternate" hreflang="en" href="https://你的網址.com/en/service-1-design.html" />
+    <link rel="alternate" hreflang="x-default" href="https://你的網址.com/service-1-design.html" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-blue: #4A6274;
+            --dark-blue: #2C3E50;
+            --light-bg: #F8FAFC;
+            --accent: #5DADE2;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans TC', sans-serif; }
+        body { color: #333; line-height: 1.8; background-color: var(--light-bg); }
+
+        /* --- 導覽列 --- */
+        nav {
+            position: fixed; width: 100%; top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-link { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 45px; width: auto; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; margin-left: 10px; }
+        .brand-name { font-size: 1.3rem; font-weight: 700; color: #1A2B3C; letter-spacing: 1px; }
+        .brand-sub { font-size: 0.85rem; font-weight: 500; color: #4A6274; letter-spacing: 0.5px; }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: var(--dark-blue); font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent); }
+
+        /* --- 分頁標題區 --- */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 10%;
+            background: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+        }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--accent); }
+        .page-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #ddd; }
+
+        /* --- 內容區塊 --- */
+        .content-section { padding: 60px 10%; max-width: 1200px; margin: 0 auto; background: var(--white); box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; margin-top: -30px; position: relative; }
+        
+        .feature-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+        .feature-item { display: flex; gap: 20px; align-items: flex-start; padding-bottom: 30px; border-bottom: 1px solid #eee; }
+        .feature-item:last-child { border-bottom: none; }
+        
+        .icon-box { background: rgba(93, 173, 226, 0.1); color: var(--accent); width: 60px; height: 60px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+        .text-box h3 { color: var(--main-blue); margin-bottom: 10px; font-size: 1.3rem; }
+        .text-box p { color: #555; margin-bottom: 10px; }
+        
+        .back-btn { display: inline-block; margin-top: 40px; padding: 12px 30px; background: var(--main-blue); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .back-btn:hover { background: var(--dark-blue); }
+
+        footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; margin-top: 60px; }
+
+        @media (max-width: 768px) { nav ul { display: none; } .feature-item { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="../index.html" class="logo-link">
+            <img src="../logo.png" alt="CoreInfra" class="logo-img">
+            <div class="logo-text">
+                <span class="brand-name">CoreInfra</span>
+                <span class="brand-sub">Systems</span>
+            </div>
+        </a>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="../service-1-design.html" style="color: var(--accent); font-weight: 700;">TW</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>1. Strategy & Design</h1>
+        <p>Pre-planning and Detailed Engineering</p>
+    </header>
+
+    <section class="content-section">
+        <h2 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">Quality Control from the Source, Building Data Centers that Best Meet Your Needs</h2>
+        <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">Data center construction is a complex system engineering process, and early strategic planning determines future success. We assist clients in accurately defining requirements in the initial stages and ensure that design schemes comply with local regulations and international standards.</p>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="icon-box">📊</div>
+                <div class="text-box">
+                    <h3>Preliminary Scheme Design & Capacity Planning</h3>
+                    <p>Based on cloud services and AI computing power needs, we conduct comprehensive planning for rack density, power, and cooling capacity. This ensures future scalability of the data center and provides precise Site Selection evaluation.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="icon-box">🏅</div>
+                <div class="text-box">
+                    <h3>Certification Consulting Services</h3>
+                    <p>Targeting international standards (such as Uptime Institute Tier Standard certification), we provide professional design guidance and consulting to ensure alignment with high availability and fault tolerance standards right from the planning phase.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="icon-box">📐</div>
+                <div class="text-box">
+                    <h3>Detailed to Complete Design Services</h3>
+                    <p>From Concept Design to Detailed Design, we deeply review cross-system interfaces such as MEP (Mechanical, Electrical, Plumbing), HVAC, and ELV systems, eliminating potential design conflicts and risk points.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="../index.html#services" class="back-btn">← Back to Services</a>
+            <a href="service-2-procurement.html" class="back-btn" style="background: var(--accent); margin-left: 15px;">Next: Procurement →</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 CoreInfra Systems Co., Ltd. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
