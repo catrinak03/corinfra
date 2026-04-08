@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreInfra Systems | Your Professional Partner for Data Center Infrastructure Lifecycle</title>
+    <title>CoreInfra | Full Lifecycle Professional Partner for Data Center Infrastructure</title>
     
     <meta http-equiv="Content-Language" content="en">
     <link rel="icon" href="logo.png" type="image/png">
@@ -20,10 +20,10 @@
             --white: #ffffff;
             
             /* --- Typography --- */
-            --font-headline: 'Manrope', sans-serif;
-            --font-body: 'Inter', sans-serif;
+            --font-headline: 'Manrope', 'Noto Sans TC', sans-serif;
+            --font-body: 'Inter', 'Noto Sans TC', sans-serif;
             
-            /* --- Shape --- */
+            /* --- Shape (Subtle Roundedness) --- */
             --radius: 6px; 
             --radius-lg: 12px;
         }
@@ -44,7 +44,7 @@
             font-weight: 800;
         }
 
-        /* --- Navigation --- */
+        /* --- 導覽列 --- */
         nav {
             position: fixed; width: 100%; top: 0;
             background: rgba(255, 255, 255, 0.95);
@@ -61,7 +61,7 @@
 
         .logo-text { display: flex; flex-direction: column; line-height: 1.1; margin-left: 12px; }
         .brand-name { font-size: 1.25rem; color: var(--primary); letter-spacing: 0.5px; }
-        .brand-sub { font-size: 0.8rem; font-family: var(--font-body); font-weight: 500; color: var(--secondary); text-transform: uppercase; }
+        .brand-sub { font-size: 0.9rem; font-family: var(--font-body); font-weight: 500; color: var(--secondary); margin-top: 4px; }
 
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 32px; }
@@ -73,12 +73,12 @@
             transition: 0.3s; 
         }
         nav ul li a:hover { color: var(--primary); }
-        .nav-lang { color: var(--primary) !important; font-weight: 700 !important; }
+        .nav-en { color: var(--primary) !important; font-weight: 700 !important; }
 
         .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
         .menu-toggle span { width: 25px; height: 2px; background-color: var(--primary); transition: 0.3s; }
 
-        /* --- Buttons --- */
+        /* --- 按鈕樣式 --- */
         .btn { 
             display: inline-flex; align-items: center; gap: 8px;
             padding: 14px 36px; background: var(--tertiary); color: white; 
@@ -87,6 +87,7 @@
         }
         .btn:hover { background: #4ba0d5; transform: translateY(-2px); }
         
+        /* 聯絡我們專用的深藍色按鈕 */
         .btn-dark { 
             background: var(--primary) !important; 
         }
@@ -97,17 +98,20 @@
         /* --- Hero Section --- */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(26, 43, 60, 0.75), rgba(26, 43, 60, 0.75)), url('../datacenter.png.webp'); 
+            background: linear-gradient(rgba(26, 43, 60, 0.75), rgba(26, 43, 60, 0.75)), url('datacenter.png.webp'); 
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: var(--white); text-align: center; padding: 0 20px;
         }
         .hero h1 { font-size: 3.5rem; margin-bottom: 24px; line-height: 1.2; letter-spacing: -1px; }
-        .hero p { font-size: 1.15rem; max-width: 800px; margin-bottom: 35px; opacity: 0.9; font-weight: 400; }
+        .hero p { font-size: 1.15rem; max-width: 700px; margin-bottom: 35px; opacity: 0.9; font-weight: 400; }
+
+        /* 新增：文字顏色強化 */
+        .text-tertiary { color: var(--tertiary); }
 
         /* --- Title Styles --- */
         .title-box { text-align: center; margin-bottom: 70px; }
-        .title-box h2 { font-size: 2.25rem; color: var(--primary); position: relative; padding-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .title-box h2 { font-size: 2.25rem; color: var(--primary); position: relative; padding-bottom: 20px; }
         .title-box h2::after { 
             content: ''; position: absolute; width: 40px; height: 4px; 
             background: var(--tertiary); bottom: 0; left: 50%; transform: translateX(-50%); 
@@ -123,7 +127,7 @@
         }
         .highlight-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .highlight-header svg { width: 20px; height: 20px; fill: var(--tertiary); }
-        .highlight-header span { color: var(--primary); font-family: var(--font-headline); letter-spacing: 0.5px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+        .highlight-header span { color: var(--primary); font-family: var(--font-headline); letter-spacing: 0.5px; font-weight: 700; }
 
         /* --- Service Cards --- */
         .service-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
@@ -133,9 +137,9 @@
             display: flex; flex-direction: column; width: 100%; max-width: 320px; 
         }
         .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(26, 43, 60, 0.08); border-color: var(--tertiary); }
-        .card h3 { color: var(--primary); margin-bottom: 8px; font-size: 1.15rem; min-height: 3rem; }
-        .card .service-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--tertiary); font-weight: 700; margin-bottom: 15px; }
-        .card p { font-size: 0.9rem; color: var(--secondary); margin-bottom: 20px; flex-grow: 1; }
+        .card h3 { color: var(--primary); margin-bottom: 8px; font-size: 1.25rem; }
+        .card .service-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--tertiary); font-weight: 700; margin-bottom: 15px; }
+        .card p { font-size: 0.95rem; color: var(--secondary); margin-bottom: 20px; }
 
         .learn-more-btn {
             color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 700;
@@ -146,8 +150,7 @@
         .learn-more-btn:hover::after { transform: translateX(5px); }
 
         /* --- Timeline --- */
-        .timeline-container { padding: 40px 0 80px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        .timeline-svg { min-width: 820px; }
+        .timeline-container { padding: 40px 0 80px 0; }
         .animated-line { stroke: var(--tertiary); stroke-width: 3; fill: none; }
         .step-text tspan[font-weight="bold"] { fill: var(--primary) !important; font-family: var(--font-headline); }
 
@@ -163,8 +166,9 @@
 
         footer { background: var(--primary); color: rgba(255,255,255,0.7); text-align: center; padding: 60px 40px; font-size: 0.9rem; }
 
-        /* --- Responsive --- */
+       /* --- Responsive --- */
         @media (max-width: 768px) { 
+            /* 導覽列 */
             nav { padding: 12px 5%; }
             .menu-toggle { display: flex; }
             nav ul {
@@ -174,9 +178,59 @@
             }
             nav ul.active { display: flex; }
             nav ul li { margin: 0; text-align: center; padding: 12px 0; }
-            section { padding: 80px 6%; }
-            .hero h1 { font-size: 2.2rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            
+            /* 整體區塊間距縮小 */
+            section { padding: 60px 6%; }
+            
+            /* --- Hero Section 優化 --- */
+            /* 字體適度縮小，調整行高與間距，並利用 padding 與 keep-all 避免孤字與不自然換行 */
+            .hero { padding: 0 5%; }
+            .hero h1 { 
+                font-size: 1.85rem; 
+                line-height: 1.35; 
+                letter-spacing: 0.5px; 
+                margin-bottom: 20px;
+                word-break: keep-all; 
+            }
+            .hero p { 
+                font-size: 0.95rem; 
+                line-height: 1.6; 
+                margin-bottom: 30px;
+                padding: 0 10px; /* 縮減兩側寬度，強制文字在適當位置換行 */
+            }
+
+            /* --- 標題與通用排版縮小 --- */
+            .title-box { margin-bottom: 45px; }
+            .title-box h2 { font-size: 1.8rem; padding-bottom: 15px; }
+            
+            /* --- 關於我們 --- */
+            .about-grid { grid-template-columns: 1fr; gap: 35px; }
+            .highlight-box { padding: 25px; margin: 20px 0; }
+            .highlight-box p { font-size: 1.1rem !important; line-height: 1.5; }
+            
+            /* --- 服務模組與時間軸 --- */
+            /* 解決 SVG 縮放導致字體過小問題，改為橫向滑動 */
+            .timeline-container { 
+                overflow-x: auto; 
+                padding-bottom: 20px; 
+                -webkit-overflow-scrolling: touch; 
+            }
+            .timeline-svg { min-width: 680px; }
+            
+            .card { padding: 30px 25px; max-width: 100%; }
+            .card h3 { font-size: 1.15rem; }
+            .card p { font-size: 0.9rem; }
+            
+            /* --- 聯絡我們與地圖 --- */
+            .contact-flex { gap: 40px; }
+            .contact-item h4 { font-size: 0.85rem; }
+            .contact-item p { font-size: 0.9rem; word-break: break-all; }
+            
+            /* 修正地圖在小螢幕爆版的問題 */
+            .map-box { min-width: 100%; height: 320px; }
+            
+            /* 按鈕滿版，提升手機點擊體驗 */
+            .contact-info .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -184,7 +238,7 @@
 
     <nav id="navbar">
         <a href="#home" class="logo-link">
-            <img src="../logo.png" alt="CoreInfra Systems" class="logo-img">
+            <img src="logo.png" alt="CoreInfra" class="logo-img">
             <div class="logo-text">
                 <span class="brand-name">CoreInfra</span>
                 <span class="brand-sub">Systems</span>
@@ -197,42 +251,43 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="../index.html" class="nav-lang">繁中</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="../index.html" class="nav-en">TW</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
-        <h1>Data Center Infrastructure<br>Lifecycle Expert Partner</h1>
-        <p>From strategic planning and engineering delivery to stable operations.<br>We provide professional expertise and actionable solutions to be your most reliable long-term partner.</p>
-        <a href="#contact" class="btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Contact our Experts
-        </a>
-    </section>
+    <h1>Data Center Infrastructure<br><span class="text-tertiary">Full Lifecycle Professional Partner</span></h1>
+    
+    <p>Providing system engineering from strategic planning and engineering delivery to stable O&M.<br>With professional experience and practical capabilities, we are your most reliable long-term partner.</p>
+    <a href="#contact" class="btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Contact Expert Team
+    </a>
+</section>
 
     <section id="about">
         <div class="title-box"><h2>About Us</h2></div>
         <div class="about-grid">
             <div style="text-align: center;">
-                <img src="../logo.png" alt="CoreInfra" style="width: 100%; max-width: 360px; border-radius: var(--radius-lg);">
+                <img src="logo.png" alt="CoreInfra" style="width: 100%; max-width: 360px; border-radius: var(--radius-lg);">
             </div>
            <div>
-                <p><strong>CoreInfra Systems</strong> was founded in 2025 by a senior team with decades of hands-on experience in the data center infrastructure industry.</p>
+                <p><strong>CoreInfra</strong> was established in 2025, co-founded by a senior team deeply rooted in the data center infrastructure industry with decades of practical experience.</p>
                 <div class="highlight-box">
                     <div class="highlight-header">
                         <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         <span>Our Core Commitment</span>
                     </div>
-                    <p style="font-size: 1.25rem; color: var(--primary); font-weight: 700;">Delivering "Operational, Scalable, and Verifiable" Data Centers.</p>
+                    <p style="font-size: 1.25rem; color: var(--primary); font-weight: 700;">Delivering a "workable, scalable, and verifiable" data center.</p>
                 </div>
-                <p style="color: var(--secondary);">Our practical experience enables CoreInfra to precisely master <strong>cross-departmental coordination, interface integration</strong>, and the stringent availability and delivery requirements of cloud service providers.</p>
+                <p style="color: var(--secondary);">This practical experience enables CoreInfra to precisely master <strong>cross-departmental coordination, interface integration</strong>, and the core requirements of cloud customers for availability and delivery milestones.</p>
             </div>
         </div>
     </section>
 
     <section id="services" style="background-color: var(--neutral);">
-        <div class="title-box"><h2>Core Service Modules</h2></div>
+        <div class="title-box"><h2>Core Services</h2></div>
         <div class="timeline-container" id="timeline">
             <svg class="timeline-svg" viewBox="0 0 820 200" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -241,43 +296,43 @@
                 <path class="animated-line" id="myPath" d="M 40 100 L 60 100 C 110 50, 150 50, 200 100 C 250 150, 290 150, 340 100 C 390 50, 430 50, 480 100 C 530 150, 570 150, 620 100 C 670 50, 710 50, 760 100 L 790 100" />
                 <circle cx="40" cy="100" r="5" fill="var(--tertiary)" />
                 <use href="#arrow-head" x="790" y="100" />
-                <text x="130" y="55" text-anchor="middle" class="step-text"><tspan x="130" dy="0" font-weight="bold" font-size="14">Planning & Design</tspan><tspan x="130" dy="22" font-size="11">Needs Assessment</tspan></text>
-                <text x="270" y="150" text-anchor="middle" class="step-text"><tspan x="270" dy="0" font-weight="bold" font-size="14">Procurement</tspan><tspan x="270" dy="22" font-size="11">Vendor Management</tspan></text>
-                <text x="410" y="55" text-anchor="middle" class="step-text"><tspan x="410" dy="0" font-weight="bold" font-size="14">Construction</tspan><tspan x="410" dy="22" font-size="11">Integration Management</tspan></text>
-                <text x="550" y="150" text-anchor="middle" class="step-text"><tspan x="550" dy="0" font-weight="bold" font-size="14">Commissioning</tspan><tspan x="550" dy="22" font-size="11">Validation & Handover</tspan></text>
-                <text x="690" y="55" text-anchor="middle" class="step-text"><tspan x="690" dy="0" font-weight="bold" font-size="14">Operation & Maint.</tspan><tspan x="690" dy="22" font-size="11">Long-term Reliability</tspan></text>
+                <text x="130" y="55" text-anchor="middle" class="step-text"><tspan x="130" dy="0" font-weight="bold" font-size="15">Planning</tspan><tspan x="130" dy="22" font-size="12">Needs & Design</tspan></text>
+                <text x="270" y="150" text-anchor="middle" class="step-text"><tspan x="270" dy="0" font-weight="bold" font-size="15">Procurement</tspan><tspan x="270" dy="22" font-size="12">Vendor Mgmt</tspan></text>
+                <text x="410" y="55" text-anchor="middle" class="step-text"><tspan x="410" dy="0" font-weight="bold" font-size="15">Construction</tspan><tspan x="410" dy="22" font-size="12">Integration Mgmt</tspan></text>
+                <text x="550" y="150" text-anchor="middle" class="step-text"><tspan x="550" dy="0" font-weight="bold" font-size="15">Commissioning</tspan><tspan x="550" dy="22" font-size="12">Validation</tspan></text>
+                <text x="690" y="55" text-anchor="middle" class="step-text"><tspan x="690" dy="0" font-weight="bold" font-size="15">Operations</tspan><tspan x="690" dy="22" font-size="12">Long-term O&M</tspan></text>
             </svg>
         </div>
         <div class="service-container">
             <div class="card">
                 <div class="service-tag">Strategy & Design</div>
                 <h3>1. Planning & Design</h3>
-                <p>Capacity planning, certification consulting, and detailed design that comply with local regulations.</p>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <p>Providing capacity planning, certification consulting, and detailed design services tailored to needs and compliance.</p>
+                <a href="en/service-1-design.html" class="learn-more-btn">Learn More</a>
             </div>
             <div class="card">
                 <div class="service-tag">Procurement</div>
                 <h3>2. Procurement</h3>
-                <p>Clarifying procurement specs, testing requirements, and defining responsibility boundaries.</p>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <p>Assisting in clarifying procurement specifications, establishing testing requirements and responsibility boundaries.</p>
+                <a href="en/service-2-procurement.html" class="learn-more-btn">Learn More</a>
             </div>
             <div class="card">
                 <div class="service-tag">Construction</div>
-                <h3>3. Construction & Setup</h3>
-                <p>EPC integrated delivery with professional PCM management to ensure schedule control.</p>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <h3>3. Construction & Installation</h3>
+                <p>One-stop EPC integrated delivery, controlling progress through professional PCM.</p>
+                <a href="en/service-3-construction.html" class="learn-more-btn">Learn More</a>
             </div>
             <div class="card">
                 <div class="service-tag">Commissioning</div>
-                <h3>4. CX & Production</h3>
-                <p>Implementing L1-L5 commissioning frameworks to ensure high availability at production launch.</p>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <h3>4. Commissioning & Handover</h3>
+                <p>Implementing the L1-L5 commissioning framework to enhance operational availability.</p>
+                <a href="en/service-4-cx.html" class="learn-more-btn">Learn More</a>
             </div>
             <div class="card">
                 <div class="service-tag">Operations</div>
-                <h3>5. Operations & Maint.</h3>
-                <p>Establishing robust O&M systems, facility upgrades, and reliability optimization.</p>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <h3>5. Maintenance & Operations</h3>
+                <p>Introducing a comprehensive O&M system, providing upgrades and reliability optimization for existing facilities.</p>
+                <a href="en/service-5-ops.html" class="learn-more-btn">Learn More</a>
             </div>
         </div>
     </section>
@@ -288,7 +343,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-                    <div><h4>Office Address</h4><p>16F.-17, No. 153, Zhongyang Rd., Xindian Dist., New Taipei City, Taiwan</p></div>
+                    <div><h4>Office Address</h4><p>16F.-17, No. 153, Zhongyang Rd., Xindian Dist., New Taipei City</p></div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
@@ -301,7 +356,7 @@
                 <br>
                 <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" class="btn btn-dark">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                    Book a Technical Consultation
+                    Book a Consultation
                 </a>
             </div>
            <div class="map-box">
@@ -340,9 +395,41 @@
         }, { threshold: 0.5 });
         observer.observe(document.getElementById('timeline'));
 
+        // ==========================================
+        //  以下為新增：優化錨點滾動與網址列清理邏輯
+        // ==========================================
+        
+        // 1. 攔截所有錨點連結點擊，達成平滑滾動但不改變網址列
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // 阻止瀏覽器預設將 # 加到網址列的行為
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // 執行平滑滾動
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // 順手優化：如果是在手機版點選單，點擊後自動收起導覽列
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
         window.addEventListener('load', () => {
+            // 原有的地圖延遲載入邏輯
             const mapIframe = document.getElementById('gmap');
             if (mapIframe) mapIframe.src = mapIframe.getAttribute('data-src');
+
+            // 2. 網頁載入時清理網址：如果有人帶有 #contact 的網址進來，清理掉但不觸發重新整理
+            if (window.location.hash) {
+                setTimeout(() => {
+                    history.replaceState(null, null, window.location.pathname + window.location.search);
+                }, 10);
+            }
         });
     </script>
 </body>
