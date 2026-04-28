@@ -63,12 +63,30 @@
         .text-box h3 { color: var(--main-blue); margin-bottom: 10px; font-size: 1.3rem; }
         .text-box p { color: #555; margin-bottom: 10px; }
         
+        /* --- 影片容器 --- */
+        .video-wrapper {
+            margin-top: 20px;
+            max-width: 700px;
+        }
+        .video-wrapper video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
         .back-btn { display: inline-block; margin-top: 40px; padding: 12px 30px; background: var(--main-blue); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
         .back-btn:hover { background: var(--dark-blue); }
 
         footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; margin-top: 60px; }
 
-        @media (max-width: 768px) { nav ul { display: none; } .feature-item { flex-direction: column; } }
+        @media (max-width: 768px) { 
+            nav ul { display: none; } 
+            .feature-item { flex-direction: column; }
+            .video-wrapper {
+                max-width: 100%;
+                margin-top: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -95,8 +113,8 @@
     </header>
 
     <section class="content-section">
-        <h2 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">從源頭把關，打造最貼近需求的資料中心</h2>
-        <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">資料中心建置是一套複雜的系統工程，前期的策略規劃決定了後續的成敗。我們協助客戶在初期精準定義需求，並確保設計方案符合在地法規與國際標準。</p>
+        <h2 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">從源頭把關,打造最貼近需求的資料中心</h2>
+        <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">資料中心建置是一套複雜的系統工程,前期的策略規劃決定了後續的成敗。我們協助客戶在初期精準定義需求,並確保設計方案符合在地法規與國際標準。</p>
 
         <div class="feature-grid">
             <div class="feature-item">
@@ -107,7 +125,7 @@
                 </div>
                 <div class="text-box">
                     <h3>前期方案設計與容量規劃</h3>
-                    <p>根據雲端服務與 AI 算力需求，進行機櫃密度、電力與冷卻容量的總體規劃，確保資料中心具備未來的可擴充性，並提供精準的場址評估 (Site Selection)。</p>
+                    <p>根據雲端服務與 AI 算力需求,進行機櫃密度、電力與冷卻容量的總體規劃,確保資料中心具備未來的可擴充性,並提供精準的場址評估 (Site Selection)。</p>
                 </div>
             </div>
 
@@ -119,7 +137,7 @@
                 </div>
                 <div class="text-box">
                     <h3>認證諮詢服務</h3>
-                    <p>針對國際標準（如 Uptime Institute Tier Standard 認證），提供專業的設計指導與諮詢，確保規劃階段即對齊高可用性與容錯標準。</p>
+                    <p>針對國際標準(如 Uptime Institute Tier Standard 認證),提供專業的設計指導與諮詢,確保規劃階段即對齊高可用性與容錯標準。</p>
                 </div>
             </div>
 
@@ -131,14 +149,22 @@
                 </div>
                 <div class="text-box">
                     <h3>細部至完整設計服務</h3>
-                    <p>從概念設計 (Concept Design) 到細部設計 (Detailed Design)，深入檢討機電、空調、弱電等跨系統介面，排除潛在的設計衝突與風險點。</p>
+                    <p>從概念設計 (Concept Design) 到細部設計 (Detailed Design),深入檢討機電、空調、弱電等跨系統介面,排除潛在的設計衝突與風險點。</p>
+                    
+                    <!-- 影片區塊 -->
+                    <div class="video-wrapper">
+                        <video autoplay loop muted controls>
+                            <source src="20260428-模擬機房配備管線.mp4" type="video/mp4">
+                            您的瀏覽器不支援影片播放。
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div style="text-align: center;">
             <a href="index.html#services" class="back-btn">← 返回服務列表</a>
-            <a href="service-2-procurement.html" class="back-btn" style="background: var(--accent); margin-left: 15px;">下一階段：採購發包 →</a>
+            <a href="service-2-procurement.html" class="back-btn" style="background: var(--accent); margin-left: 15px;">下一階段:採購發包 →</a>
         </div>
     </section>
 
