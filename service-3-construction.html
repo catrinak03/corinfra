@@ -22,7 +22,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans TC', sans-serif; }
         body { color: #333; line-height: 1.8; background-color: var(--light-bg); }
 
-        /* --- 導覽列 --- */
         nav {
             position: fixed; width: 100%; top: 0;
             background: rgba(255, 255, 255, 0.98);
@@ -41,7 +40,6 @@
         nav ul li a { text-decoration: none; color: var(--dark-blue); font-weight: 500; transition: 0.3s; }
         nav ul li a:hover { color: var(--accent); }
 
-        /* --- 分頁標題區 --- */
         .page-header {
             margin-top: 80px;
             padding: 80px 10%;
@@ -52,7 +50,6 @@
         .page-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--accent); }
         .page-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #ddd; }
 
-        /* --- 內容區塊 --- */
         .content-section { padding: 60px 10%; max-width: 1200px; margin: 0 auto; background: var(--white); box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; margin-top: -30px; position: relative; }
         
         .construction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
@@ -60,7 +57,6 @@
         .item-card h3 { color: var(--main-blue); margin-bottom: 15px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
         .item-card ul { list-style: none; }
         
-        /* 將原本的文字符號 ✓ 替換為現代化的 SVG 系統 icon */
         .item-card ul li { margin-bottom: 10px; padding-left: 24px; position: relative; }
         .item-card ul li::before { 
             content: ''; 
@@ -109,6 +105,7 @@
     </header>
 
     <section class="content-section">
+        
         <h2 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">標準化、模組化與高品質交付</h2>
         <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">基曜科技具備統籌 EPC (設計、採購、建造) 專案的能力，透過嚴謹的 PCM 專案管理流程，我們將複雜的施工介面化繁為簡，確保資料中心基礎設施的每一處細節都符合國際標準。</p>
 
@@ -134,6 +131,33 @@
                     <li>專案風險預警與成本控管</li>
                 </ul>
             </div>
+        </div>
+
+        <!-- ✅ 插入圖片（小尺寸） -->
+        <div style="text-align: center; margin-top: 40px; margin-bottom: 10px;">
+            <div style="
+                background: #ffffff;
+                padding: 12px;
+                border-radius: 10px;
+                box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+                display: inline-block;
+                max-width: 600px;
+                width: 100%;
+            ">
+                <img src="AI機房.jpg" alt="Data Center Infrastructure Overview"
+                    style="width: 100%; height: auto; border-radius: 6px; display: block;">
+            </div>
+            <p style="
+                margin-top: 10px;
+                color: #777;
+                font-size: 0.85rem;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 1.5;
+            ">
+                Data Center Infrastructure Integration Overview
+            </p>
         </div>
 
         <div style="background: var(--light-bg); padding: 40px; border-radius: 12px; margin-top: 40px; text-align: center;">
