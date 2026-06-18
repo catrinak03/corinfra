@@ -129,10 +129,10 @@
         .highlight-header svg { width: 20px; height: 20px; fill: var(--tertiary); }
         .highlight-header span { color: var(--primary); font-family: var(--font-headline); letter-spacing: 0.5px; font-weight: 700; }
 
-        /* --- Service Cards (已更換為 Grid 排版達成 3+2 佈局) --- */
+        /* --- 核心服務模組 (Grid 3欄與置中優化) --- */
         .service-container { 
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
+            grid-template-columns: repeat(6, 1fr); /* 改用 6 網格系統，以便更彈性地控制置中 */
             max-width: 1080px;
             margin: 0 auto;
             gap: 24px; 
@@ -142,15 +142,19 @@
             border: 1px solid #E9ECEF; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
             display: flex; flex-direction: column; width: 100%;
         }
-        
-        /* 讓第 4 張卡片從第二欄開始，使 4、5 兩張卡片在第二層水平居中 */
-        .card:nth-child(4) {
-            grid-column: 1 / 2;
-            grid-column-start: 1;
+
+        /* 第一層（1, 2, 3）：每張卡片各佔 2 格，剛好平分第一排的 6 格 */
+        .card:nth-child(1), .card:nth-child(2), .card:nth-child(3) {
+            grid-column: span 2;
         }
-        /* 若您希望 4、5 居中靠齊，可以取消註解下方兩行，並把上面的 grid-column 拿掉 */
-        .card:nth-child(4) { grid-column-start: 1; margin-left: auto; max-width: 344px; }
-        .card:nth-child(5) { grid-column-start: 2; margin-right: auto; max-width: 344px; }
+
+        /* 第二層（4, 5）：透過推移與佔格，讓兩張卡片完美在第二排居中 */
+        .card:nth-child(4) {
+            grid-column: 2 / span 2; /* 從第 2 格線開始算，佔 2 格 */
+        }
+        .card:nth-child(5) {
+            grid-column: 4 / span 2; /* 從第 4 格線開始算，佔 2 格 */
+        }
 
         .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(26, 43, 60, 0.08); border-color: var(--tertiary); }
         .card h3 { color: var(--primary); margin-bottom: 8px; font-size: 1.25rem; }
@@ -232,7 +236,7 @@
             }
             .timeline-svg { min-width: 680px; }
             
-            /* 恢復 RWD 在手機板的單欄排版與重設寬度 */
+            /* 手機版自動切換為一整行垂直排列（不套用 grid-column 跨欄） */
             .service-container {
                 display: flex;
                 flex-direction: column;
@@ -442,3 +446,14 @@
             // 原有的地圖延遲載入邏輯
             const mapIframe = document.getElementById('gmap');
             if (mapIframe) mapIframe.src = mapIframe.getAttribute('data-src');
+
+            // 2. 網頁載入時清理網址
+            if (window.location.hash) {
+                setTimeout(() => {
+                    history.replaceState(null, null, window.location.pathname + window.location.search);
+                }, 10);
+            }
+        });
+    </script>
+</body>
+</html>
