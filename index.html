@@ -129,10 +129,11 @@
         .highlight-header svg { width: 20px; height: 20px; fill: var(--tertiary); }
         .highlight-header span { color: var(--primary); font-family: var(--font-headline); letter-spacing: 0.5px; font-weight: 700; }
 
-        /* --- 核心服務模組 (Grid 3欄與置中優化) --- */
+        /* --- 核心服務模組 (Flexbox 完美兩列平均排列優化) --- */
         .service-container { 
-            display: grid; 
-            grid-template-columns: repeat(6, 1fr); /* 改用 6 網格系統，以便更彈性地控制置中 */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* 讓內容整體居中 */
             max-width: 1080px;
             margin: 0 auto;
             gap: 24px; 
@@ -140,20 +141,15 @@
         .card { 
             background: var(--white); padding: 45px 35px; border-radius: var(--radius-lg); 
             border: 1px solid #E9ECEF; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            display: flex; flex-direction: column; width: 100%;
+            display: flex; flex-direction: column;
+            
+            /* 桌機大螢幕：3欄扣掉 gap 後的精準寬度計算 */
+            width: calc((100% - (24px * 2)) / 3); 
         }
 
-        /* 第一層（1, 2, 3）：每張卡片各佔 2 格，剛好平分第一排的 6 格 */
-        .card:nth-child(1), .card:nth-child(2), .card:nth-child(3) {
-            grid-column: span 2;
-        }
-
-        /* 第二層（4, 5）：透過推移與佔格，讓兩張卡片完美在第二排居中 */
-        .card:nth-child(4) {
-            grid-column: 2 / span 2; /* 從第 2 格線開始算，佔 2 格 */
-        }
-        .card:nth-child(5) {
-            grid-column: 4 / span 2; /* 從第 4 格線開始算，佔 2 格 */
+        /* 當卡片換到第二行（4, 5張）時，重新計算寬度，讓它們兩張剛好平分整行（並與第一排左右切齊） */
+        .card:nth-child(4), .card:nth-child(5) {
+            width: calc((100% - 24px) / 2);
         }
 
         .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(26, 43, 60, 0.08); border-color: var(--tertiary); }
@@ -236,13 +232,13 @@
             }
             .timeline-svg { min-width: 680px; }
             
-            /* 手機版自動切換為一整行垂直排列（不套用 grid-column 跨欄） */
+            /* 手機版自動切換為一整欄垂直排列 */
             .service-container {
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
             }
-            .card { padding: 30px 25px; max-width: 100% !important; margin: 0 !important; }
+            .card, .card:nth-child(4), .card:nth-child(5) { padding: 30px 25px; width: 100% !important; margin: 0 !important; }
             .card h3 { font-size: 1.15rem; }
             .card p { font-size: 0.9rem; }
             
