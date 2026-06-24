@@ -1,176 +1,124 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>前期規劃設計 | 基曜科技 CoreInfra</title>
-    
-    <meta http-equiv="Content-Language" content="zh-TW">
-    <link rel="alternate" hreflang="zh-TW" href="https://你的網址.com/service-1-design.html" />
-    <link rel="alternate" hreflang="en" href="https://你的網址.com/en/service-1-design.html" />
-    <link rel="alternate" hreflang="x-default" href="https://你的網址.com/service-1-design.html" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --main-blue: #4A6274;
-            --dark-blue: #2C3E50;
-            --light-bg: #F8FAFC;
-            --accent: #5DADE2;
-            --white: #ffffff;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans TC', sans-serif; }
-        body { color: #333; line-height: 1.8; background-color: var(--light-bg); }
-
-        /* --- 導覽列 --- */
-        nav {
-            position: fixed; width: 100%; top: 0;
-            background: rgba(255, 255, 255, 0.98);
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 8%; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .logo-link { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 45px; width: auto; }
-        .logo-text { display: flex; flex-direction: column; line-height: 1.2; margin-left: 10px; }
-        .brand-name { font-size: 1.3rem; font-weight: 700; color: #1A2B3C; letter-spacing: 1px; }
-        .brand-sub { font-size: 0.85rem; font-weight: 500; color: #4A6274; letter-spacing: 0.5px; }
-
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 30px; }
-        nav ul li a { text-decoration: none; color: var(--dark-blue); font-weight: 500; transition: 0.3s; }
-        nav ul li a:hover { color: var(--accent); }
-
-        /* --- 分頁標題區 --- */
-        .page-header {
-            margin-top: 80px;
-            padding: 80px 10%;
-            background: var(--dark-blue);
-            color: var(--white);
-            text-align: center;
-        }
-        .page-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--accent); }
-        .page-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #ddd; }
-
-        /* --- 內容區塊 --- */
-        .content-section { padding: 60px 10%; max-width: 1200px; margin: 0 auto; background: var(--white); box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; margin-top: -30px; position: relative; }
-        
-        .feature-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
-        .feature-item { display: flex; gap: 20px; align-items: flex-start; padding-bottom: 30px; border-bottom: 1px solid #eee; }
-        .feature-item:last-child { border-bottom: none; }
-        
-        .icon-box { background: rgba(93, 173, 226, 0.1); color: var(--accent); width: 60px; height: 60px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
-        .text-box h3 { color: var(--main-blue); margin-bottom: 10px; font-size: 1.3rem; }
-        .text-box p { color: #555; margin-bottom: 10px; }
-        
-        /* --- 影片容器 --- */
-        .video-wrapper {
-            margin-top: 20px;
-            max-width: 700px;
-        }
-        .video-wrapper video {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .back-btn { display: inline-block; margin-top: 40px; padding: 12px 30px; background: var(--main-blue); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .back-btn:hover { background: var(--dark-blue); }
-
-        footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; margin-top: 60px; }
-
-        @media (max-width: 768px) { 
-            nav ul { display: none; } 
-            .feature-item { flex-direction: column; }
-            .video-wrapper {
-                max-width: 100%;
-                margin-top: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前期規劃設計 | 基曜科技 CoreInfra</title>
+<meta http-equiv="Content-Language" content="zh-TW">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/coreinfra.css">
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="logo-link">
-            <img src="logo.png" alt="CoreInfra" class="logo-img">
-            <div class="logo-text">
-                <span class="brand-name">基曜科技</span>
-                <span class="brand-sub">CoreInfra</span>
-            </div>
-        </a>
-        <ul>
-            <li><a href="index.html">回首頁</a></li>
-            <li><a href="index.html#services">服務模組</a></li>
-            <li><a href="index.html#contact">聯絡我們</a></li>
-            <li><a href="en/service-1-design.html" style="color: var(--accent); font-weight: 700;">EN</a></li>
-        </ul>
-    </nav>
+<nav class="site-nav" data-screen-label="nav">
+  <a href="index.html" class="brand">
+    <img src="logo.png" alt="基曜科技 CoreInfra">
+    <span class="brand-text"><span class="brand-name">基曜科技</span><span class="brand-sub">COREINFRA</span></span>
+  </a>
+  <button class="menu-toggle" aria-label="選單"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="index.html#about">關於我們</a></li>
+    <li><a href="index.html#services">服務模組</a></li>
+    <li><a href="index.html#contact">聯絡我們</a></li>
+    <li><a href="en/service-1-design.html" class="nav-lang">EN</a></li>
+  </ul>
+</nav>
 
-    <header class="page-header">
-        <h1>1. 前期規劃設計</h1>
-        <p>Strategy & Design</p>
-    </header>
+<header class="svc-hero" data-screen-label="服務1 Hero">
+  <div class="grid-tex"></div>
+  <div class="sh-glow"></div>
+  <div class="ghost-num">01</div>
+  <div class="wrap inner">
+    <nav class="crumb"><a href="index.html">首頁</a><span class="sep">/</span><a href="index.html#services">服務模組</a><span class="sep">/</span><span class="cur">01 前期規劃設計</span></nav>
+    <h1>前期規劃設計</h1>
+    <div class="sh-sub">Strategy &amp; Design</div>
+    <p class="sh-intro">資料中心建置是一套複雜的系統工程，前期的策略規劃決定了後續的成敗。我們協助客戶在初期精準定義需求，並確保設計方案符合在地法規與國際標準。</p>
+    <div class="phase-rail">
+      <a class="pr cur" href="service-1-design.html"><span class="dot"></span>01 前期規劃</a>
+      <a class="pr" href="service-2-procurement.html"><span class="dot"></span>02 採購發包</a>
+      <a class="pr" href="service-3-construction.html"><span class="dot"></span>03 建置安裝</a>
+      <a class="pr" href="service-4-cx.html"><span class="dot"></span>04 測試驗收</a>
+      <a class="pr" href="service-5-ops.html"><span class="dot"></span>05 維護營運</a>
+    </div>
+  </div>
+</header>
 
-    <section class="content-section">
-        <h2 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">從源頭把關,打造最貼近需求的資料中心</h2>
-        <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">資料中心建置是一套複雜的系統工程,前期的策略規劃決定了後續的成敗。我們協助客戶在初期精準定義需求,並確保設計方案符合在地法規與國際標準。</p>
+<section class="svc-content">
+  <div class="wrap">
+    <div class="lead-row reveal">
+      <p class="eyebrow center">Capabilities</p>
+      <h2 style="margin-top:18px">從源頭把關，打造最貼近需求的資料中心</h2>
+      <p>我們在專案最前端就投入資深工程能量，將模糊的營運目標轉化為精確、可執行、可驗證的設計藍圖。</p>
+    </div>
 
-        <div class="feature-grid">
-            <div class="feature-item">
-                <div class="icon-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1em; height: 1em;">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
-                    </svg>
-                </div>
-                <div class="text-box">
-                    <h3>前期方案設計與容量規劃</h3>
-                    <p>根據雲端服務與 AI 算力需求,進行機櫃密度、電力與冷卻容量的總體規劃,確保資料中心具備未來的可擴充性,並提供精準的場址評估 (Site Selection)。</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <div class="icon-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1em; height: 1em;">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                    </svg>
-                </div>
-                <div class="text-box">
-                    <h3>認證諮詢服務</h3>
-                    <p>針對國際標準(如 Uptime Institute Tier Standard 認證),提供專業的設計指導與諮詢,確保規劃階段即對齊高可用性與容錯標準。</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <div class="icon-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1em; height: 1em;">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                    </svg>
-                </div>
-                <div class="text-box">
-                    <h3>細部至完整設計服務</h3>
-                    <p>從概念設計 (Concept Design) 到細部設計 (Detailed Design),深入檢討機電、空調、弱電等跨系統介面,排除潛在的設計衝突與風險點。</p>
-                    
-                    <!-- 影片區塊 -->
-                    <div class="video-wrapper">
-                        <video autoplay loop muted controls>
-                            <source src="20260428-模擬機房配備管線.mp4" type="video/mp4">
-                            您的瀏覽器不支援影片播放。
-                        </video>
-                    </div>
-                </div>
-            </div>
+    <div class="feature-list">
+      <div class="feature-row reveal">
+        <div class="fr-ico"><span class="fr-n">1</span><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h3v8H3zM10.5 8h3v13h-3zM18 4h3v17h-3z"/></svg></div>
+        <div><h3>前期方案設計與容量規劃</h3><p>根據雲端服務與 AI 算力需求，進行機櫃密度、電力與冷卻容量的總體規劃，確保資料中心具備未來的可擴充性，並提供精準的場址評估（Site Selection）。</p></div>
+      </div>
+      <div class="feature-row reveal d1">
+        <div class="fr-ico"><span class="fr-n">2</span><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
+        <div><h3>認證諮詢服務</h3><p>針對國際標準（如 Uptime Institute Tier Standard 認證），提供專業的設計指導與諮詢，確保規劃階段即對齊高可用性與容錯標準。</p></div>
+      </div>
+      <div class="feature-row reveal d2">
+        <div class="fr-ico"><span class="fr-n">3</span><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m16.86 4.49 1.69-1.69a1.875 1.875 0 1 1 2.65 2.65L10.58 16.07a4.5 4.5 0 0 1-1.9 1.13L6 18l.8-2.69a4.5 4.5 0 0 1 1.13-1.9z"/><path d="M19.5 7.13 16.88 4.5"/></svg></div>
+        <div>
+          <h3>細部至完整設計服務</h3>
+          <p>從概念設計（Concept Design）到細部設計（Detailed Design），深入檢討機電、空調、弱電等跨系統介面，排除潛在的設計衝突與風險點。</p>
+          <div class="media-frame reveal d1" style="margin-top:22px;max-width:680px">
+            <video autoplay loop muted playsinline controls poster="datacenter.png.webp">
+              <source src="20260428-模擬機房配備管線.mp4" type="video/mp4">
+              您的瀏覽器不支援影片播放。
+            </video>
+            <div class="media-cap">模擬機房配備管線 — 細部設計可視化</div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div style="text-align: center;">
-            <a href="index.html#services" class="back-btn">← 返回服務列表</a>
-            <a href="service-2-procurement.html" class="back-btn" style="background: var(--accent); margin-left: 15px;">下一階段:採購發包 →</a>
-        </div>
-    </section>
+    <div class="page-nav">
+      <a class="pg home" href="index.html#services"><svg viewBox="0 0 24 24"><path d="M19 12H5m6 6-6-6 6-6"/></svg><span><span class="pg-k">Back</span><span class="pg-t">返回服務列表</span></span></a>
+      <span class="pg-mid"></span>
+      <a class="pg next" href="service-2-procurement.html"><span><span class="pg-k">Next · 02</span><span class="pg-t">採購發包</span></span><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>© 2025 基曜科技股份有限公司 (CoreInfra Systems Co., Ltd.) 版權所有</p>
-    </footer>
+<footer class="site-footer">
+  <div class="grid-tex"></div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fb-name">基曜科技 CoreInfra</div>
+      <div class="fb-sub">CORE INFRASTRUCTURE SYSTEMS</div>
+      <p>資料中心基礎設施全生命週期專業夥伴。交付可運轉、可擴充、可驗證的關鍵基礎設施。</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>服務模組</h5>
+        <a href="service-1-design.html">前期規劃設計</a>
+        <a href="service-2-procurement.html">採購發包</a>
+        <a href="service-3-construction.html">建置與安裝</a>
+        <a href="service-4-cx.html">測試驗收與投產</a>
+        <a href="service-5-ops.html">維護保養與營運</a>
+      </div>
+      <div class="footer-col">
+        <h5>聯絡</h5>
+        <a href="index.html#contact">聯絡我們</a>
+        <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" rel="noopener">預約技術相談</a>
+        <a href="en/service-1-design.html">English</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 基曜科技股份有限公司 CoreInfra Systems Co., Ltd.</span>
+    <span>臺北市中正區忠孝東路二段88號4樓</span>
+  </div>
+</footer>
 
+<script src="assets/coreinfra.js"></script>
 </body>
 </html>
