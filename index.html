@@ -1,425 +1,469 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>基曜科技 CoreInfra | 資料中心基礎設施全生命週期專業夥伴</title>
-<meta name="description" content="基曜科技 CoreInfra — 從策略規劃、工程交付到穩定運維的資料中心基礎設施系統工程專家。交付可運轉、可擴充、可驗證的資料中心。">
-<meta http-equiv="Content-Language" content="zh-TW">
-<link rel="icon" href="logo.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/coreinfra.css">
-<style>
-/* ============ HERO ============ */
-.hero {
-  position: relative; min-height: 100vh; display: flex; align-items: center;
-  background: var(--ink-900); overflow: hidden; isolation: isolate;
-}
-.hero-media { position: absolute; inset: -8% 0 0; z-index: 0; will-change: transform; }
-.hero-media img { width: 100%; height: 116%; object-fit: cover; object-position: center; }
-.hero-veil {
-  position: absolute; inset: 0; z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(4,22,31,0.72) 0%, rgba(4,22,31,0.55) 38%, rgba(4,22,31,0.82) 100%),
-    linear-gradient(95deg, rgba(0,48,72,0.88) 6%, rgba(6,31,43,0.40) 52%, rgba(4,22,31,0.18) 100%);
-}
-.hero .grid-tex { z-index: 1; opacity: 0.5; }
-.hero-glow {
-  position: absolute; z-index: 1; right: -6%; top: 50%; transform: translateY(-50%);
-  width: 60vw; height: 60vw; max-width: 760px; max-height: 760px;
-  background: radial-gradient(circle, var(--signal-glow) 0%, rgba(58,214,239,0.12) 32%, transparent 64%);
-  filter: blur(8px); opacity: 0.5; pointer-events: none;
-}
-.hero-inner { position: relative; z-index: 2; padding-top: 96px; padding-bottom: 40px; max-width: 1280px; }
-.hero-side {
-  position: absolute; left: calc(var(--pad-x) - 26px); top: 46%;
-  writing-mode: vertical-rl; transform: rotate(180deg);
-  font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.5em;
-  color: rgba(182,197,210,0.42); text-transform: uppercase;
-}
-.hero h1 {
-  color: #fff; font-size: clamp(2.3rem, 6.2vw, 4.6rem); margin: 22px 0 0;
-  max-width: 17ch;
-}
-.hero h1 .grad {
-  background: linear-gradient(92deg, var(--signal-bright), var(--steel-300));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero-sub {
-  color: var(--tx-light-2); font-size: clamp(1rem, 1.5vw, 1.18rem); margin-top: 26px;
-  max-width: 50ch; line-height: 1.85;
-}
-.hero-cta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
-.hero-specs {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-  margin-top: 64px; max-width: 880px;
-  background: var(--line-dk); border: 1px solid var(--line-dk); border-radius: var(--r);
-  overflow: hidden;
-}
-.hero-spec { background: rgba(6,31,43,0.46); backdrop-filter: blur(6px); padding: 22px 24px; }
-.hero-spec .hs-k { font-family: var(--f-display); font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1; }
-:lang(zh-TW) .hero-spec .hs-k { font-family: var(--f-cjk); font-weight: 900; }
-.hero-spec .hs-k .u { font-size: 0.9rem; color: var(--signal-bright); margin-left: 3px; font-weight: 600; }
-.hero-spec .hs-l { font-size: 0.8rem; color: var(--tx-light-3); margin-top: 9px; letter-spacing: 0.02em; }
-.scroll-cue {
-  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 2;
-  font-family: var(--f-mono); font-size: 0.6rem; letter-spacing: 0.3em; color: rgba(182,197,210,0.6);
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-}
-.scroll-cue .bar { width: 1px; height: 38px; background: linear-gradient(var(--signal-bright), transparent); position: relative; overflow: hidden; }
-.scroll-cue .bar::after { content: ""; position: absolute; top: -38px; left: 0; width: 1px; height: 38px; background: var(--signal-bright); animation: cue 2.2s var(--ease) infinite; }
-@keyframes cue { to { top: 38px; } }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基曜科技 CoreInfra | 資料中心基礎設施全生命週期專業夥伴</title>
+    
+    <meta http-equiv="Content-Language" content="zh-TW">
+    <link rel="icon" href="logo.png" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* --- Design System Colors --- */
+            --primary: #1A2B3C;    
+            --secondary: #4A6274;  
+            --tertiary: #5DADE2;   
+            --neutral: #F8F9FA;    
+            --white: #ffffff;
+            
+            /* --- Typography --- */
+            --font-headline: 'Manrope', 'Noto Sans TC', sans-serif;
+            --font-body: 'Inter', 'Noto Sans TC', sans-serif;
+            
+            /* --- Shape (Subtle Roundedness) --- */
+            --radius: 6px; 
+            --radius-lg: 12px;
+        }
 
-/* hero entrance */
-.hero .anim { opacity: 0; transform: translateY(28px); animation: heroUp .9s var(--ease) forwards; }
-.hero .anim.a1 { animation-delay: .1s; } .hero .anim.a2 { animation-delay: .22s; }
-.hero .anim.a3 { animation-delay: .34s; } .hero .anim.a4 { animation-delay: .46s; } .hero .anim.a5 { animation-delay: .6s; }
-@keyframes heroUp { to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .hero .anim { opacity: 1; transform: none; animation: none; } .scroll-cue .bar::after { animation: none; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-/* ============ ABOUT ============ */
-.about { background: var(--paper); position: relative; }
-.about-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: clamp(40px, 6vw, 84px); align-items: center; }
-.about-visual { position: relative; }
-.about-visual .frame {
-  position: relative; border-radius: var(--r-lg); overflow: hidden;
-  box-shadow: var(--shadow-lg); aspect-ratio: 4/5;
-}
-.about-visual .frame img { width: 100%; height: 100%; object-fit: cover; }
-.about-visual .frame::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(0,48,72,0.55));
-}
-.about-tag {
-  position: absolute; left: -22px; bottom: 36px; z-index: 2;
-  background: rgba(6,31,43,0.78); backdrop-filter: blur(10px);
-  border: 1px solid var(--line-dk); border-left: 3px solid var(--signal);
-  padding: 18px 24px; border-radius: var(--r-sm); box-shadow: var(--shadow);
-}
-.about-tag .at-k { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.2em; color: var(--signal-bright); text-transform: uppercase; }
-.about-tag .at-v { color: #fff; font-family: var(--f-cjk); font-weight: 700; font-size: 1.05rem; margin-top: 6px; }
-.about-corner { position: absolute; width: 64px; height: 64px; border: 1px solid var(--steel-300); opacity: 0.5; }
-.about-corner.tr { top: -14px; right: -14px; border-bottom: none; border-left: none; }
+        body { 
+            color: var(--primary); 
+            line-height: 1.7; 
+            overflow-x: hidden;
+            background-color: var(--white);
+            font-family: var(--font-body);
+        }
 
-.about-body > p { font-size: 1.08rem; color: var(--tx-body); }
-.about-body .lead { font-size: 1.18rem; color: var(--tx-dark); }
-.commit {
-  margin: 32px 0; padding: 30px 32px; border-radius: var(--r);
-  background: linear-gradient(135deg, var(--ink-800), var(--navy));
-  color: #fff; position: relative; overflow: hidden;
-}
-.commit .grid-tex { opacity: 0.4; }
-.commit .ck { font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.2em; color: var(--signal-bright); text-transform: uppercase; display: flex; align-items: center; gap: 10px; position: relative; }
-.commit .ck svg { width: 16px; height: 16px; fill: var(--signal-bright); }
-.commit .cv { font-family: var(--f-cjk); font-weight: 900; font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin-top: 14px; line-height: 1.4; position: relative; }
-.commit .cv b { color: var(--signal-bright); }
-.about-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-.about-pills span {
-  font-family: var(--f-mono); font-size: 0.74rem; letter-spacing: 0.05em;
-  padding: 8px 15px; border: 1px solid var(--line); border-radius: 999px; color: var(--tx-soft);
-}
+        h1, h2, h3, .brand-name {
+            font-family: var(--font-headline);
+            font-weight: 800;
+        }
 
-/* ============ SERVICES (dark) ============ */
-.services { background: var(--ink-900); color: var(--tx-light); position: relative; overflow: hidden; }
-.services .grid-tex { opacity: 0.6; }
-.services .inner { position: relative; z-index: 1; }
-.services .section-head h2 { color: #fff; }
-.services .section-head p { color: var(--tx-light-3); }
+        /* --- 導覽列 --- */
+        nav {
+            position: fixed; width: 100%; top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; z-index: 1000;
+            box-shadow: 0 1px 10px rgba(26, 43, 60, 0.05);
+            transition: 0.3s;
+        }
 
-/* process rail */
-.proc { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 0 0 8px; position: relative; }
-.proc::before { content: ""; position: absolute; left: 0; right: 0; top: 13px; height: 1px; background: var(--line-dk); }
-.proc-node { position: relative; text-align: center; padding-top: 34px; }
-.proc-node::before {
-  content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
-  width: 13px; height: 13px; border-radius: 50%; background: var(--ink-900);
-  border: 2px solid var(--steel-500); transition: .4s var(--ease); z-index: 1;
-}
-.proc-node.on::before { border-color: var(--signal-bright); box-shadow: 0 0 0 5px var(--signal-soft), 0 0 16px var(--signal-glow); background: var(--signal); }
-.proc-node .pn-n { font-family: var(--f-mono); font-size: 0.7rem; color: var(--signal-bright); letter-spacing: 0.1em; }
-.proc-node .pn-t { font-family: var(--f-cjk); font-weight: 700; font-size: 0.96rem; color: var(--tx-light-2); margin-top: 4px; }
+        .logo-link { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 55px; width: auto; transition: 0.3s ease; }
+        nav.scrolled { padding: 10px 8%; }
+        nav.scrolled .logo-img { height: 40px; }
 
-.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
-.svc-card {
-  position: relative; display: flex; flex-direction: column;
-  padding: 34px 30px 30px; border-radius: var(--r);
-  background: linear-gradient(180deg, rgba(10,51,70,0.5), rgba(6,31,43,0.5));
-  border: 1px solid var(--line-dk); text-decoration: none;
-  transition: transform .45s var(--ease), border-color .35s, background .35s, box-shadow .45s;
-  overflow: hidden;
-}
-.svc-card::before {
-  content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 0;
-  background: linear-gradient(90deg, var(--signal), var(--signal-bright)); transition: width .5s var(--ease);
-}
-.svc-card:hover { transform: translateY(-6px); border-color: rgba(58,214,239,0.4); background: linear-gradient(180deg, rgba(14,62,84,0.75), rgba(8,40,54,0.7)); box-shadow: var(--shadow-lg); }
-.svc-card:hover::before { width: 100%; }
-.svc-num { font-family: var(--f-mono); font-size: 0.82rem; font-weight: 600; color: var(--signal-bright); letter-spacing: 0.08em; }
-.svc-ico { margin: 18px 0 16px; width: 48px; height: 48px; border-radius: 11px; background: var(--signal-soft); border: 1px solid var(--line-dk); display: flex; align-items: center; justify-content: center; transition: .35s; }
-.svc-ico svg { width: 24px; height: 24px; stroke: var(--signal-bright); fill: none; stroke-width: 1.6; }
-.svc-card:hover .svc-ico { background: var(--signal); border-color: var(--signal); }
-.svc-card:hover .svc-ico svg { stroke: #04161f; }
-.svc-tag { font-family: var(--f-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--steel-300); }
-.svc-card h3 { color: #fff; font-size: 1.22rem; margin: 7px 0 12px; }
-.svc-card p { color: var(--tx-light-3); font-size: 0.95rem; flex: 1; }
-.svc-more { margin-top: 22px; display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--tx-light-2); transition: .3s, gap .3s; }
-.svc-more svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .3s; }
-.svc-card:hover .svc-more { color: var(--signal-bright); }
-.svc-card:hover .svc-more svg { transform: translateX(5px); }
-.svc-card.cta-card { background: linear-gradient(150deg, var(--signal-deep), var(--navy)); border-color: rgba(58,214,239,0.3); justify-content: center; align-items: flex-start; }
-.svc-card.cta-card h3 { font-size: 1.35rem; }
-.svc-card.cta-card p { flex: none; color: var(--tx-light-2); }
-.svc-card.cta-card .svc-more { color: #fff; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; margin-left: 12px; }
+        .brand-name { font-size: 1.25rem; color: var(--primary); letter-spacing: 0.5px; }
+        .brand-sub { font-size: 0.9rem; font-family: var(--font-body); font-weight: 500; color: var(--secondary); margin-top: 4px; }
 
-/* ============ CONTACT ============ */
-.contact { background: var(--mist); }
-.contact-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(34px, 5vw, 64px); align-items: stretch; }
-.contact-info { display: flex; flex-direction: column; }
-.contact-item { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
-.contact-item:first-of-type { padding-top: 0; }
-.ci-ico { width: 46px; height: 46px; flex-shrink: 0; border-radius: 11px; background: var(--white); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); }
-.ci-ico svg { width: 20px; height: 20px; stroke: var(--signal-deep); fill: none; stroke-width: 1.7; }
-.ci-k { font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tx-soft); }
-.ci-v { color: var(--tx-dark); font-weight: 500; font-size: 1rem; margin-top: 4px; }
-.contact-cta { margin-top: 28px; }
-.map-box { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow); min-height: 440px; border: 1px solid var(--line); position: relative; }
-.map-box iframe { width: 100%; height: 100%; min-height: 440px; border: 0; display: block; filter: grayscale(0.3) contrast(1.05); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 32px; }
+        nav ul li a { 
+            text-decoration: none; 
+            color: var(--secondary); 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: 0.3s; 
+        }
+        nav ul li a:hover { color: var(--primary); }
+        .nav-en { color: var(--primary) !important; font-weight: 700 !important; }
 
-@media (max-width: 980px) {
-  .hero-specs { grid-template-columns: repeat(2, 1fr); }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; }
-  .about-visual { max-width: 460px; }
-  .svc-grid { grid-template-columns: repeat(2, 1fr); }
-  .proc { grid-template-columns: repeat(5, 1fr); overflow-x: auto; }
-  .map-box { min-height: 340px; }
-}
-@media (max-width: 600px) {
-  .hero-side { display: none; }
-  .hero-specs { grid-template-columns: 1fr 1fr; }
-  .svc-grid { grid-template-columns: 1fr; }
-  .proc { display: none; }
-  .about-tag { left: 12px; right: 12px; bottom: 12px; }
-}
-</style>
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 2px; background-color: var(--primary); transition: 0.3s; }
+
+        /* --- 按鈕樣式 --- */
+        .btn { 
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 36px; background: var(--tertiary); color: white; 
+            text-decoration: none; border-radius: var(--radius); 
+            font-weight: 600; transition: 0.3s; cursor: pointer; border: none;
+        }
+        .btn:hover { background: #4ba0d5; transform: translateY(-2px); }
+        
+        /* 聯絡我們專用的深藍色按鈕 */
+        .btn-dark { 
+            background: var(--primary) !important; 
+        }
+        .btn-dark:hover { 
+            background: #0d1a26 !important; 
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 43, 60, 0.75), rgba(26, 43, 60, 0.75)), url('datacenter.png.webp');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: var(--white); text-align: center; padding: 0 20px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 24px; line-height: 1.2; letter-spacing: -1px; }
+        .hero p { font-size: 1.15rem; max-width: 700px; margin-bottom: 35px; opacity: 0.9; font-weight: 400; }
+
+        /* --- Hero 進場動畫 --- */
+        .hero h1, .hero p, .hero .btn {
+            opacity: 0; transform: translateY(20px);
+            animation: heroIn 0.8s ease forwards;
+        }
+        .hero p { animation-delay: 0.15s; }
+        .hero .btn { animation-delay: 0.3s; }
+        @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+        /* --- 滾動淡入（reveal） --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .service-container .card.reveal:nth-child(2) { transition-delay: 0.1s; }
+        .service-container .card.reveal:nth-child(3) { transition-delay: 0.2s; }
+        .service-container .card.reveal:nth-child(4) { transition-delay: 0.3s; }
+        .service-container .card.reveal:nth-child(5) { transition-delay: 0.4s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero h1, .hero p, .hero .btn { animation: none; opacity: 1; transform: none; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* 新增：文字顏色強化 */
+        .text-tertiary { color: var(--tertiary); }
+
+        /* --- Title Styles --- */
+        .title-box { text-align: center; margin-bottom: 70px; }
+        .title-box h2 { font-size: 2.25rem; color: var(--primary); position: relative; padding-bottom: 20px; }
+        .title-box h2::after { 
+            content: ''; position: absolute; width: 40px; height: 4px; 
+            background: var(--tertiary); bottom: 0; left: 50%; transform: translateX(-50%); 
+            border-radius: 2px;
+        }
+
+        /* --- About Section --- */
+        section { padding: 100px 10%; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; }
+        .highlight-box { 
+            background: var(--neutral); padding: 35px; border-radius: var(--radius); 
+            margin: 30px 0; border-left: 5px solid var(--tertiary); 
+        }
+        .highlight-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .highlight-header svg { width: 20px; height: 20px; fill: var(--tertiary); }
+        .highlight-header span { color: var(--primary); font-family: var(--font-headline); letter-spacing: 0.5px; font-weight: 700; }
+
+        /* --- Service Cards --- */
+        .service-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+        .card { 
+            background: var(--white); padding: 45px 35px; border-radius: var(--radius-lg); 
+            border: 1px solid #E9ECEF; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            display: flex; flex-direction: column; width: 100%; max-width: 320px; 
+        }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(26, 43, 60, 0.08); border-color: var(--tertiary); }
+        .card h3 { color: var(--primary); margin-bottom: 8px; font-size: 1.25rem; }
+        .card .service-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--tertiary); font-weight: 700; margin-bottom: 15px; }
+        .card p { font-size: 0.95rem; color: var(--secondary); margin-bottom: 20px; }
+
+        .learn-more-btn {
+            color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 700;
+            display: flex; align-items: center; transition: 0.3s;
+        }
+        .learn-more-btn::after { content: ' →'; transition: 0.3s; }
+        .learn-more-btn:hover { color: var(--tertiary); }
+        .learn-more-btn:hover::after { transform: translateX(5px); }
+
+        /* --- Timeline --- */
+        .timeline-container { padding: 40px 0 80px 0; }
+        .animated-line { stroke: var(--tertiary); stroke-width: 3; fill: none; }
+        .step-text tspan[font-weight="bold"] { fill: var(--primary) !important; font-family: var(--font-headline); }
+
+        /* --- Contact --- */
+        .contact-flex { display: flex; flex-wrap: wrap; gap: 60px; }
+        .contact-info { flex: 1; }
+        .contact-item { display: flex; gap: 15px; margin-bottom: 30px; }
+        .contact-icon { width: 44px; height: 44px; background: var(--neutral); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-icon svg { width: 20px; height: 20px; fill: var(--primary); }
+        .contact-item h4 { color: var(--primary); margin-bottom: 4px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .contact-item p { color: var(--secondary); font-size: 0.95rem; }
+        .map-box { flex: 1.5; min-width: 350px; height: 450px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        footer { background: var(--primary); color: rgba(255,255,255,0.7); text-align: center; padding: 60px 40px; font-size: 0.9rem; }
+
+       /* --- Responsive --- */
+        @media (max-width: 768px) { 
+            /* 導覽列 */
+            nav { padding: 12px 5%; }
+            .menu-toggle { display: flex; }
+            nav ul {
+                display: none; position: absolute; top: 100%; left: 0; width: 100%;
+                flex-direction: column; background: white; padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+            nav ul.active { display: flex; }
+            nav ul li { margin: 0; text-align: center; padding: 12px 0; }
+            
+            /* 整體區塊間距縮小 */
+            section { padding: 60px 6%; }
+            
+            /* --- Hero Section 優化 --- */
+            /* 字體適度縮小，調整行高與間距，並利用 padding 與 keep-all 避免孤字與不自然換行 */
+            .hero { padding: 0 5%; }
+            .hero h1 { 
+                font-size: 1.85rem; 
+                line-height: 1.35; 
+                letter-spacing: 0.5px; 
+                margin-bottom: 20px;
+                word-break: keep-all; 
+            }
+            .hero p { 
+                font-size: 0.95rem; 
+                line-height: 1.6; 
+                margin-bottom: 30px;
+                padding: 0 10px; /* 縮減兩側寬度，強制文字在適當位置換行 */
+            }
+
+            /* --- 標題與通用排版縮小 --- */
+            .title-box { margin-bottom: 45px; }
+            .title-box h2 { font-size: 1.8rem; padding-bottom: 15px; }
+            
+            /* --- 關於我們 --- */
+            .about-grid { grid-template-columns: 1fr; gap: 35px; }
+            .highlight-box { padding: 25px; margin: 20px 0; }
+            .highlight-box p { font-size: 1.1rem !important; line-height: 1.5; }
+            
+            /* --- 服務模組與時間軸 --- */
+            /* 解決 SVG 縮放導致字體過小問題，改為橫向滑動 */
+            .timeline-container { 
+                overflow-x: auto; 
+                padding-bottom: 20px; 
+                -webkit-overflow-scrolling: touch; 
+            }
+            .timeline-svg { min-width: 680px; }
+            
+            .card { padding: 30px 25px; max-width: 100%; }
+            .card h3 { font-size: 1.15rem; }
+            .card p { font-size: 0.9rem; }
+            
+            /* --- 聯絡我們與地圖 --- */
+            .contact-flex { gap: 40px; }
+            .contact-item h4 { font-size: 0.85rem; }
+            .contact-item p { font-size: 0.9rem; word-break: break-all; }
+            
+            /* 修正地圖在小螢幕爆版的問題 */
+            .map-box { min-width: 100%; height: 320px; }
+            
+            /* 按鈕滿版，提升手機點擊體驗 */
+            .contact-info .btn { width: 100%; justify-content: center; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
-<nav class="site-nav on-hero" data-screen-label="nav">
-  <a href="#home" class="brand">
-    <img src="logo.png" alt="基曜科技 CoreInfra">
-    <span class="brand-text">
-      <span class="brand-name">基曜科技</span>
-      <span class="brand-sub">COREINFRA</span>
-    </span>
-  </a>
-  <button class="menu-toggle" aria-label="選單"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="#home">首頁</a></li>
-    <li><a href="#about">關於我們</a></li>
-    <li><a href="#services">服務模組</a></li>
-    <li><a href="#contact">聯絡我們</a></li>
-    <li><a href="en/index.html" class="nav-lang">EN</a></li>
-  </ul>
-</nav>
+    <nav id="navbar">
+        <a href="#home" class="logo-link">
+            <img src="logo.png" alt="基曜科技" class="logo-img">
+            <div class="logo-text">
+                <span class="brand-name">基曜科技</span>
+                <span class="brand-sub">CoreInfra</span>
+            </div>
+        </a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <ul id="nav-links">
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#about">關於我們</a></li>
+            <li><a href="#services">服務模組</a></li>
+            <li><a href="#contact">聯絡我們</a></li>
+            <li><a href="en/index.html" class="nav-en">EN</a></li>
+        </ul>
+    </nav>
 
-<!-- ============ HERO ============ -->
-<header class="hero" id="home" data-screen-label="Hero">
-  <div class="hero-media" data-parallax><img src="datacenter.png.webp" alt="資料中心機房"></div>
-  <div class="hero-veil"></div>
-  <div class="grid-tex"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-side">CORE · INFRA SYSTEMS</div>
-  <div class="wrap hero-inner">
-    <p class="eyebrow on-dark anim a1">Data Center Infrastructure</p>
-    <h1 class="anim a2">資料中心基礎設施<br><span class="grad">全生命週期專業夥伴</span></h1>
-    <p class="hero-sub anim a3">從策略規劃、工程交付到穩定運維的系統工程。以數十年實戰經驗與可落地的能力，交付「可運轉、可擴充、可驗證」的資料中心。</p>
-    <div class="hero-cta anim a4">
-      <a href="#contact" class="btn btn-primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+    <section id="home" class="hero">
+    <h1>資料中心基礎設施<br><span class="text-tertiary">全生命週期專業夥伴</span></h1>
+    
+    <p>提供策略規劃、工程交付到穩定運維的系統工程。<br>以專業經驗與可落地的能力，成為您最可靠的長期合作夥伴。</p>
+    <a href="#contact" class="btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         聯繫專家團隊
-      </a>
-      <a href="#services" class="btn btn-ghost">了解服務模組</a>
-    </div>
-    <div class="hero-specs anim a5">
-      <div class="hero-spec"><div class="hs-k">5<span class="u">階段</span></div><div class="hs-l">全生命週期交付</div></div>
-      <div class="hero-spec"><div class="hs-k">L1–L5</div><div class="hs-l">完整驗證框架</div></div>
-      <div class="hero-spec"><div class="hs-k">EPC</div><div class="hs-l">一站式整合交付</div></div>
-      <div class="hero-spec"><div class="hs-k">Tier</div><div class="hs-l">Uptime 標準對齊</div></div>
-    </div>
-  </div>
-  <div class="scroll-cue"><span>SCROLL</span><span class="bar"></span></div>
-</header>
-
-<!-- ============ ABOUT ============ -->
-<section class="about" id="about">
-  <div class="wrap about-grid">
-    <div class="about-visual reveal">
-      <div class="about-corner tr"></div>
-      <div class="frame"><img src="AI機房.jpg" alt="AI 資料中心機房"></div>
-      <div class="about-tag">
-        <div class="at-k">Est. 2025 · Taiwan</div>
-        <div class="at-v">數十年產業實戰經驗</div>
-      </div>
-    </div>
-    <div class="about-body">
-      <p class="eyebrow reveal">About CoreInfra</p>
-      <div class="section-head reveal d1" style="margin-bottom:24px">
-        <h2>由資深團隊打造<br>值得信賴的關鍵基礎設施</h2>
-      </div>
-      <p class="lead reveal d1"><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年，由一群長期深耕資料中心基礎設施產業、累積數十年實務經驗的資深團隊共同創立。</p>
-      <div class="commit reveal d2">
-        <div class="grid-tex"></div>
-        <div class="ck"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>我們的核心承諾</div>
-        <div class="cv">交付「<b>可運轉</b>、<b>可擴充</b>、<b>可驗證</b>」的資料中心。</div>
-      </div>
-      <p class="reveal d3" style="color:var(--tx-soft)">這份實戰經驗使基曜能精準掌握<strong>跨單位協調、介面整合</strong>，以及雲端客戶對可用性與交付節點的核心要求。</p>
-      <div class="about-pills reveal d3">
-        <span>跨單位協調</span><span>介面整合</span><span>高可用性</span><span>交付節點管理</span>
-      </div>
-    </div>
-  </div>
+    </a>
 </section>
 
-<!-- ============ SERVICES ============ -->
-<section class="services" id="services">
-  <div class="grid-tex"></div>
-  <div class="wrap inner">
-    <div class="section-head center reveal">
-      <p class="eyebrow on-dark center">Core Service Modules</p>
-      <h2>從規劃到運維的<br>五階段全生命週期工程</h2>
-      <p>我們以一條清晰的工程主軸，貫穿資料中心從無到有、再到長期穩定運轉的每一個關鍵節點。</p>
-    </div>
-
-    <div class="proc reveal d1">
-      <div class="proc-node on"><div class="pn-n">01</div><div class="pn-t">前期規劃</div></div>
-      <div class="proc-node on"><div class="pn-n">02</div><div class="pn-t">採購發包</div></div>
-      <div class="proc-node on"><div class="pn-n">03</div><div class="pn-t">建置安裝</div></div>
-      <div class="proc-node on"><div class="pn-n">04</div><div class="pn-t">測試驗收</div></div>
-      <div class="proc-node on"><div class="pn-n">05</div><div class="pn-t">維護營運</div></div>
-    </div>
-
-    <div class="svc-grid">
-      <a href="service-1-design.html" class="svc-card reveal d1">
-        <span class="svc-num">01</span>
-        <span class="svc-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h3v8H3zM10.5 8h3v13h-3zM18 4h3v17h-3z"/></svg></span>
-        <span class="svc-tag">Strategy &amp; Design</span>
-        <h3>前期規劃設計</h3>
-        <p>提供貼近需求且符合法規的容量規劃、認證諮詢與細部設計服務。</p>
-        <span class="svc-more">了解細節 <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
-      </a>
-      <a href="service-2-procurement.html" class="svc-card reveal d2">
-        <span class="svc-num">02</span>
-        <span class="svc-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v3H5zM6 8v11h12V8M9.5 12h5"/></svg></span>
-        <span class="svc-tag">Procurement</span>
-        <h3>採購發包</h3>
-        <p>協助釐清採購規格，確立測試要求與責任邊界，降低變更與超支風險。</p>
-        <span class="svc-more">了解細節 <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
-      </a>
-      <a href="service-3-construction.html" class="svc-card reveal d3">
-        <span class="svc-num">03</span>
-        <span class="svc-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m4 20 7-7 4 4M14 4l6 6M13 5l6 6-3 3-6-6z"/></svg></span>
-        <span class="svc-tag">Construction</span>
-        <h3>建置與系統安裝</h3>
-        <p>EPC 一站式整合交付，透過專業 PCM 管理控制進度與品質。</p>
-        <span class="svc-more">了解細節 <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
-      </a>
-      <a href="service-4-cx.html" class="svc-card reveal d1">
-        <span class="svc-num">04</span>
-        <span class="svc-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span>
-        <span class="svc-tag">Commissioning</span>
-        <h3>測試驗收與投產</h3>
-        <p>落實 L1–L5 驗收框架，強化投產可用性與系統穩定度。</p>
-        <span class="svc-more">了解細節 <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
-      </a>
-      <a href="service-5-ops.html" class="svc-card reveal d2">
-        <span class="svc-num">05</span>
-        <span class="svc-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span>
-        <span class="svc-tag">Operations</span>
-        <h3>維護保養與營運</h3>
-        <p>導入完善維運制度，並提供既有機房升級與可靠度優化。</p>
-        <span class="svc-more">了解細節 <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
-      </a>
-      <a href="#contact" class="svc-card cta-card reveal d3">
-        <span class="svc-num">→</span>
-        <h3>需要完整方案？</h3>
-        <p>讓基曜的資深團隊，陪您走完資料中心的每一哩路。</p>
-        <span class="svc-more">預約技術相談 <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Contact Us</p>
-      <h2>讓我們談談您的下一座資料中心</h2>
-      <p>無論是全新建置、既有機房升級，或單一階段的專業諮詢，歡迎與我們的技術團隊聯繫。</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <div class="contact-item">
-          <div class="ci-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-          <div><div class="ci-k">Office Address</div><div class="ci-v">臺北市中正區忠孝東路二段88號4樓</div></div>
+    <section id="about">
+        <div class="title-box reveal"><h2>關於我們</h2></div>
+        <div class="about-grid">
+            <div class="reveal" style="text-align: center;">
+                <img src="logo.png" alt="CoreInfra" style="width: 100%; max-width: 360px; border-radius: var(--radius-lg);">
+            </div>
+           <div class="reveal">
+                <p><strong>基曜科技 (CoreInfra)</strong> 成立於 2025 年，由一群長期深耕資料中心基礎設施產業、累積數十年實務經驗的資深團隊共同創立。</p>
+                <div class="highlight-box">
+                    <div class="highlight-header">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <span>我們的核心承諾</span>
+                    </div>
+                    <p style="font-size: 1.25rem; color: var(--primary); font-weight: 700;">交付「可運轉、可擴充、可驗證」的資料中心。</p>
+                </div>
+                <p style="color: var(--secondary);">這份實戰經驗使基曜能精準掌握<strong>跨單位協調、介面整合</strong>，以及雲端客戶對可用性與交付節點的核心要求。</p>
+            </div>
         </div>
-        <div class="contact-item">
-          <div class="ci-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></div>
-          <div><div class="ci-k">Phone</div><div class="ci-v">+886-922-106813</div></div>
-        </div>
-        <div class="contact-item">
-          <div class="ci-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></div>
-          <div><div class="ci-k">E-mail</div><div class="ci-v">Catrina.Kao@coreinfra-tw.com</div></div>
-        </div>
-        <div class="contact-cta">
-          <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" rel="noopener" class="btn btn-dark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
-            預約技術相談
-          </a>
-        </div>
-      </div>
-      <div class="map-box reveal d1">
-        <iframe id="gmap" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7229.475308412216!2d121.52935430000001!3d25.042975700000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97b0efbac53%3A0xf38e8eedd095cbce!2zMTAw6Ie65YyX5biC5Lit5q2j5Y2A5bm456aP6YeM5b-g5a2d5p2x6Lev5LqM5q61ODjomZ80!5e0!3m2!1szh-TW!2stw!4v1782281612053!5m2!1szh-TW!2stw" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="基曜科技位置"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="grid-tex"></div>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="fb-name">基曜科技 CoreInfra</div>
-      <div class="fb-sub">CORE INFRASTRUCTURE SYSTEMS</div>
-      <p>資料中心基礎設施全生命週期專業夥伴。交付可運轉、可擴充、可驗證的關鍵基礎設施。</p>
-    </div>
-    <div class="footer-cols">
-      <div class="footer-col">
-        <h5>服務模組</h5>
-        <a href="service-1-design.html">前期規劃設計</a>
-        <a href="service-2-procurement.html">採購發包</a>
-        <a href="service-3-construction.html">建置與安裝</a>
-        <a href="service-4-cx.html">測試驗收與投產</a>
-        <a href="service-5-ops.html">維護保養與營運</a>
-      </div>
-      <div class="footer-col">
-        <h5>聯絡</h5>
-        <a href="#contact">聯絡我們</a>
-        <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" rel="noopener">預約技術相談</a>
-        <a href="en/index.html">English</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 基曜科技股份有限公司 CoreInfra Systems Co., Ltd.</span>
-    <span>臺北市中正區忠孝東路二段88號4樓</span>
-  </div>
-</footer>
+    <section id="services" style="background-color: var(--neutral);">
+        <div class="title-box reveal"><h2>核心服務模組</h2></div>
+        <div class="timeline-container" id="timeline">
+            <svg class="timeline-svg" viewBox="0 0 820 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <polyline id="arrow-head" points="-8,-8 0,0 -8,8" fill="none" stroke="var(--tertiary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </defs>
+                <path class="animated-line" id="myPath" d="M 40 100 L 60 100 C 110 50, 150 50, 200 100 C 250 150, 290 150, 340 100 C 390 50, 430 50, 480 100 C 530 150, 570 150, 620 100 C 670 50, 710 50, 760 100 L 790 100" />
+                <circle cx="40" cy="100" r="5" fill="var(--tertiary)" />
+                <use href="#arrow-head" x="790" y="100" />
+                <text x="130" y="55" text-anchor="middle" class="step-text"><tspan x="130" dy="0" font-weight="bold" font-size="15">前期規劃</tspan><tspan x="130" dy="22" font-size="12">需求評估與設計</tspan></text>
+                <text x="270" y="150" text-anchor="middle" class="step-text"><tspan x="270" dy="0" font-weight="bold" font-size="15">採購發包</tspan><tspan x="270" dy="22" font-size="12">供應商管理</tspan></text>
+                <text x="410" y="55" text-anchor="middle" class="step-text"><tspan x="410" dy="0" font-weight="bold" font-size="15">建置安裝</tspan><tspan x="410" dy="22" font-size="12">施工整合管理</tspan></text>
+                <text x="550" y="150" text-anchor="middle" class="step-text"><tspan x="550" dy="0" font-weight="bold" font-size="15">測試驗收</tspan><tspan x="550" dy="22" font-size="12">功能驗證投產</tspan></text>
+                <text x="690" y="55" text-anchor="middle" class="step-text"><tspan x="690" dy="0" font-weight="bold" font-size="15">維護營運</tspan><tspan x="690" dy="22" font-size="12">長期保養監控</tspan></text>
+            </svg>
+        </div>
+        <div class="service-container">
+            <div class="card reveal">
+                <div class="service-tag">Strategy & Design</div>
+                <h3>1. 前期規劃設計</h3>
+                <p>提供貼近需求且符合法規的容量規劃、認證諮詢與細部設計服務。</p>
+                <a href="service-1-design.html" class="learn-more-btn">了解細節</a>
+            </div>
+            <div class="card reveal">
+                <div class="service-tag">Procurement</div>
+                <h3>2. 採購發包</h3>
+                <p>協助釐清採購規格，確立測試要求與責任邊界。</p>
+                <a href="service-2-procurement.html" class="learn-more-btn">了解細節</a>
+            </div>
+            <div class="card reveal">
+                <div class="service-tag">Construction</div>
+                <h3>3. 建置與系統安裝</h3>
+                <p>EPC 一站式整合交付，透過專業 PCM 管理控制進度。</p>
+                <a href="service-3-construction.html" class="learn-more-btn">了解細節</a>
+            </div>
+            <div class="card reveal">
+                <div class="service-tag">Commissioning</div>
+                <h3>4. 測試驗收與投產</h3>
+                <p>落實 L1-L5 驗收框架，強化投產可用性。</p>
+                <a href="service-4-cx.html" class="learn-more-btn">了解細節</a>
+            </div>
+            <div class="card reveal">
+                <div class="service-tag">Operations</div>
+                <h3>5. 維護保養與營運</h3>
+                <p>導入完善維運制度，並提供既有機房升級與可靠度優化。</p>
+                <a href="service-5-ops.html" class="learn-more-btn">了解細節</a>
+            </div>
+        </div>
+    </section>
 
-<script src="assets/coreinfra.js"></script>
+    <section id="contact">
+        <div class="title-box reveal"><h2>聯絡我們</h2></div>
+        <div class="contact-flex">
+            <div class="contact-info reveal">
+                <div class="contact-item">
+                    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+                    <div><h4>Office Address</h4><p>新北市新店區中央路153號16樓之17</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+                    <div><h4>Phone Number</h4><p>+886-922-106813</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+                    <div><h4>E-mail</h4><p>Catrina.Kao@coreinfra-tw.com</p></div>
+                </div>
+                <br>
+                <a href="https://forms.gle/8BGC43NuoDbeVEku9" target="_blank" class="btn btn-dark">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    預約技術相談
+                </a>
+            </div>
+           <div class="map-box reveal">
+                <iframe id="gmap" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.541355470248!2d121.5284143!3d24.9817179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346802102f663f73%3A0xc39105436f562477!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5Lit5aSu6LevMTUz6JmfMTbomZ_kuYsxNw!5e0!3m2!1szh-TW!2stw!4v1711880000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 基曜科技股份有限公司 <br> CoreInfra Systems Co., Ltd. All Rights Reserved.</p>
+    </footer>
+
+   <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+
+        // Timeline Path Logic
+        const path = document.getElementById('myPath');
+        const pathLength = path.getTotalLength();
+        path.style.strokeDasharray = pathLength;
+        path.style.strokeDashoffset = pathLength;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    path.style.transition = 'stroke-dashoffset 2s ease-in-out';
+                    path.style.strokeDashoffset = '0';
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(document.getElementById('timeline'));
+
+        // 滾動淡入效果
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ==========================================
+        //  以下為新增：優化錨點滾動與網址列清理邏輯
+        // ==========================================
+        
+        // 1. 攔截所有錨點連結點擊，達成平滑滾動但不改變網址列
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // 阻止瀏覽器預設將 # 加到網址列的行為
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // 執行平滑滾動
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // 順手優化：如果是在手機版點選單，點擊後自動收起導覽列
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            // 原有的地圖延遲載入邏輯
+            const mapIframe = document.getElementById('gmap');
+            if (mapIframe) mapIframe.src = mapIframe.getAttribute('data-src');
+
+            // 2. 網頁載入時清理網址：如果有人帶有 #contact 的網址進來，清理掉但不觸發重新整理
+            if (window.location.hash) {
+                setTimeout(() => {
+                    history.replaceState(null, null, window.location.pathname + window.location.search);
+                }, 10);
+            }
+        });
+    </script>
 </body>
 </html>
